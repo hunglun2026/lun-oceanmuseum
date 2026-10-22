@@ -1,0 +1,1154 @@
+[
+[
+"海洋哺乳類",
+"海獺",
+"Enhydra lutris",
+"II",
+false,
+"海獺"
+],
+[
+"海洋哺乳類",
+"南方海獺",
+"Enhydra lutris nereis",
+"I",
+false,
+"南方海獺"
+],
+[
+"海洋哺乳類",
+"秘魯水獺（貓獺、海獺）",
+"Lontra felina",
+"I",
+false,
+"秘魯水獺"
+],
+[
+"海洋哺乳類",
+"南極毛皮海獅",
+"Arctocephalus gazella",
+"II",
+false,
+"南極毛皮海獅"
+],
+[
+"海洋哺乳類",
+"智利毛皮海獅",
+"Arctocephalus philippii",
+"II",
+false,
+"智利毛皮海獅"
+],
+[
+"海洋哺乳類",
+"赤道毛皮海獅",
+"Arctocephalus galapagoensis",
+"II",
+false,
+"赤道毛皮海獅"
+],
+[
+"海洋哺乳類",
+"非洲毛皮海獅",
+"Arctocephalus pusillus",
+"II",
+false,
+"非洲毛皮海獅"
+],
+[
+"海洋哺乳類",
+"新澳毛皮海獅",
+"Arctocephalus forsteri",
+"II",
+false,
+"新澳毛皮海獅"
+],
+[
+"海洋哺乳類",
+"幅北毛皮海獅",
+"Arctocephalus tropicalis",
+"II",
+false,
+"幅北毛皮海獅"
+],
+[
+"海洋哺乳類",
+"南美毛皮海獅",
+"Arctocephalus australis",
+"II",
+false,
+"南美毛皮海獅"
+],
+[
+"海洋哺乳類",
+"奎達路海獅（北美毛皮海獅）",
+"Arctocephalus townsendi",
+"I",
+false,
+"奎達路海獅"
+],
+[
+"海洋哺乳類",
+"象鼻海豹",
+"Mirounga leonine",
+"II",
+false,
+"象鼻海豹"
+],
+[
+"海洋哺乳類",
+"夏威夷僧海豹",
+"Monachus schauinslandi",
+"I",
+false,
+"夏威夷僧海豹"
+],
+[
+"海洋哺乳類",
+"地中海僧海豹",
+"Monachus monachus",
+"I",
+false,
+"地中海僧海豹"
+],
+[
+"海洋哺乳類",
+"西印度僧海豹",
+"Monachus tropicalis",
+"I",
+false,
+"西印度僧海豹"
+],
+[
+"海洋哺乳類",
+"北極鯨",
+"Balaena mysticetus",
+"I",
+false,
+"北極鯨"
+],
+[
+"海洋哺乳類",
+"南露脊鯨",
+"Eubalaena australis",
+"I",
+false,
+"南露脊鯨"
+],
+[
+"海洋哺乳類",
+"北大西洋露脊鯨",
+"Eubalaena glacialis",
+"I",
+false,
+"北大西洋露脊鯨"
+],
+[
+"海洋哺乳類",
+"北太平洋露脊鯨",
+"Eubalaena japonica",
+"I",
+false,
+"北太平洋露脊鯨"
+],
+[
+"海洋哺乳類",
+"小鬚鯨",
+"Balaenoptera acutorostrata",
+"I",
+true,
+"真小鬚鯨"
+],
+[
+"海洋哺乳類",
+"南極小鬚鯨",
+"Balaenoptera bonaerensis",
+"I",
+false,
+"南極小鬚鯨"
+],
+[
+"海洋哺乳類",
+"?鯨",
+"Balaenoptera borealis",
+"I",
+true,
+"鰮鯨"
+],
+[
+"海洋哺乳類",
+"布氏鯨(鯷鯨)",
+"Balaenoptera edeni",
+"I",
+true,
+"布氏鯨"
+],
+[
+"海洋哺乳類",
+"藍鯨",
+"Balaenoptera musculus",
+"I",
+true,
+"藍鯨"
+],
+[
+"海洋哺乳類",
+"大村鯨",
+"Balaenoptera omurai",
+"I",
+true,
+"大村鯨"
+],
+[
+"海洋哺乳類",
+"長須鯨",
+"Balaenoptera physalus",
+"I",
+true,
+"長須鯨"
+],
+[
+"海洋哺乳類",
+"大翅鯨",
+"Megaptera novaeangliae",
+"I",
+true,
+"大翅鯨"
+],
+[
+"海洋哺乳類",
+"康氏矮海豚",
+"Cephalorhynchus commersonii",
+"II",
+false,
+"康氏矮海豚"
+],
+[
+"海洋哺乳類",
+"智利矮海豚",
+"Cephalorhynchus eutropia",
+"II",
+false,
+"智利矮海豚"
+],
+[
+"海洋哺乳類",
+"海氏矮海豚",
+"Cephalorhynchus heavisidii",
+"II",
+false,
+"海氏矮海豚"
+],
+[
+"海洋哺乳類",
+"賀氏矮海豚",
+"Cephalorhynchus hectori",
+"II",
+false,
+"賀氏矮海豚"
+],
+[
+"海洋哺乳類",
+"短吻真海豚",
+"Delphinus delphis",
+"II",
+true,
+"短吻真海豚"
+],
+[
+"海洋哺乳類",
+"長吻真海豚",
+"Delphinus capensis",
+"II",
+true,
+"長吻真海豚"
+],
+[
+"海洋哺乳類",
+"小虎鯨",
+"Feresa attenuata",
+"II",
+true,
+"小虎鯨"
+],
+[
+"海洋哺乳類",
+"短肢領航鯨",
+"Globicephala macrorhynchus",
+"II",
+true,
+"短肢領航鯨"
+],
+[
+"海洋哺乳類",
+"長肢領航鯨",
+"Globicephala melas",
+"II",
+false,
+"長肢領航鯨"
+],
+[
+"海洋哺乳類",
+"瑞氏海豚",
+"Grampus griseus",
+"II",
+true,
+"瑞氏海豚"
+],
+[
+"海洋哺乳類",
+"弗氏海豚",
+"Lagenodelphis hosei",
+"II",
+true,
+"弗氏海豚"
+],
+[
+"海洋哺乳類",
+"白喙斑紋海豚",
+"Lagenorhynchus albirostris",
+"II",
+false,
+"白喙斑紋海豚"
+],
+[
+"海洋哺乳類",
+"大西洋斑紋海豚",
+"Lagenorhynchus acutus",
+"II",
+false,
+"大西洋斑紋海豚"
+],
+[
+"海洋哺乳類",
+"暗色斑紋海豚",
+"Lagenorhynchus obscurus",
+"II",
+false,
+"暗色斑紋海豚"
+],
+[
+"海洋哺乳類",
+"太平洋斑紋海豚",
+"Lagenorhynchus obliquidens",
+"II",
+false,
+"太平洋斑紋海豚"
+],
+[
+"海洋哺乳類",
+"沙漏斑紋海豚",
+"Lagenorhynchus cruciger",
+"II",
+false,
+"沙漏斑紋海豚"
+],
+[
+"海洋哺乳類",
+"皮氏斑紋海豚",
+"Lagenorhynchus australis",
+"II",
+false,
+"皮氏斑紋海豚"
+],
+[
+"海洋哺乳類",
+"北露脊海豚",
+"Lissodelphis borealis",
+"II",
+false,
+"北露脊海豚"
+],
+[
+"海洋哺乳類",
+"南露脊海豚",
+"Lissodelphis peronii",
+"II",
+false,
+"南露脊海豚"
+],
+[
+"海洋哺乳類",
+"伊河海豚",
+"Orcaella brevirostris",
+"I",
+false,
+"伊河海豚"
+],
+[
+"海洋哺乳類",
+"矮鰭海豚",
+"Orcaella heinsohni",
+"I",
+false,
+"矮鰭海豚"
+],
+[
+"海洋哺乳類",
+"虎鯨",
+"Orcinus orca",
+"II",
+true,
+"虎鯨"
+],
+[
+"海洋哺乳類",
+"瓜頭鯨",
+"Peponocephala electra",
+"II",
+true,
+"瓜頭鯨"
+],
+[
+"海洋哺乳類",
+"偽虎鯨",
+"Pseudorca crassidens",
+"II",
+true,
+"偽虎鯨"
+],
+[
+"海洋哺乳類",
+"糙齒海豚",
+"Steno bredanensis",
+"II",
+true,
+"糙齒海豚"
+],
+[
+"海洋哺乳類",
+"土庫海豚",
+"Sotalia fluviatilis",
+"I",
+false,
+"土庫海豚"
+],
+[
+"海洋哺乳類",
+"圭那海豚",
+"Sotalia guianensis",
+"I",
+false,
+"圭那海豚"
+],
+[
+"海洋哺乳類",
+"澳洲駝海豚",
+"Sousa sahulensis",
+"I",
+false,
+"澳洲駝海豚"
+],
+[
+"海洋哺乳類",
+"印度洋駝海豚",
+"Sousa plumbea",
+"I",
+false,
+"印度洋駝海豚"
+],
+[
+"海洋哺乳類",
+"大西洋駝海豚",
+"Sousa teuszii",
+"I",
+false,
+"大西洋駝海豚"
+],
+[
+"海洋哺乳類",
+"中華白海豚",
+"Sousa chinensis",
+"I",
+true,
+"中華白海豚"
+],
+[
+"海洋哺乳類",
+"印太瓶鼻海豚",
+"Tursiops aduncus",
+"II",
+true,
+"印太瓶鼻海豚"
+],
+[
+"海洋哺乳類",
+"真瓶鼻海豚",
+"Tursiops truncatus\n(Synonym : Tursiops gillii)",
+"II",
+null,
+null
+],
+[
+"海洋哺乳類",
+"大西洋斑海豚",
+"Stenella frontalis",
+"II",
+false,
+"大西洋斑海豚"
+],
+[
+"海洋哺乳類",
+"長吻飛旋海豚",
+"Stenella longirostris",
+"II",
+true,
+"長吻飛旋海豚"
+],
+[
+"海洋哺乳類",
+"熱帶斑海豚",
+"Stenella attenuata",
+"II",
+true,
+"熱帶斑海豚"
+],
+[
+"海洋哺乳類",
+"短吻飛旋海豚",
+"Stenella clymene",
+"II",
+false,
+"短吻飛旋海豚"
+],
+[
+"海洋哺乳類",
+"條紋海豚",
+"Stenella coeruleoalba",
+"II",
+true,
+"條紋海豚"
+],
+[
+"海洋哺乳類",
+"灰鯨",
+"Eschrichtius robustus",
+"I",
+true,
+"灰鯨"
+],
+[
+"海洋哺乳類",
+"亞河豚",
+"Inia geoffrensis",
+"II",
+false,
+"亞河豚"
+],
+[
+"海洋哺乳類",
+"小抹香鯨",
+"Kogia breviceps",
+"II",
+true,
+"小抹香鯨"
+],
+[
+"海洋哺乳類",
+"侏儒抹香鯨",
+"Kogia sima",
+"II",
+true,
+"侏儒抹香鯨"
+],
+[
+"海洋哺乳類",
+"白鱀豚",
+"Lipotes vexillifer",
+"I",
+false,
+"白鱀豚"
+],
+[
+"海洋哺乳類",
+"白鯨",
+"Delphinapterus leucas",
+"II",
+false,
+"白鯨"
+],
+[
+"海洋哺乳類",
+"一角鯨",
+"Monodon monoceros",
+"II",
+false,
+"一角鯨"
+],
+[
+"海洋哺乳類",
+"小露脊鯨",
+"Caperea marginata",
+"I",
+false,
+"小露脊鯨"
+],
+[
+"海洋哺乳類",
+"窄脊露脊鼠海豚",
+"Neophocaena asiaeorientalis",
+"II",
+true,
+"窄脊露脊鼠海豚"
+],
+[
+"海洋哺乳類",
+"寬脊露脊鼠海豚",
+"Neophocaena phocaenoides",
+"I",
+true,
+"江豬"
+],
+[
+"海洋哺乳類",
+"加灣鼠海豚",
+"Phocoena sinus",
+"I",
+false,
+"加灣鼠海豚"
+],
+[
+"海洋哺乳類",
+"港灣鼠海豚",
+"Phocoena phocoena",
+"II",
+false,
+"港灣鼠海豚"
+],
+[
+"海洋哺乳類",
+"棘鰭鼠海豚",
+"Phocoena spinipinnis",
+"II",
+false,
+"棘鰭鼠海豚"
+],
+[
+"海洋哺乳類",
+"黑眶鼠海豚",
+"Phocoena dioptrica",
+"II",
+false,
+"黑眶鼠海豚"
+],
+[
+"海洋哺乳類",
+"白腰鼠海豚",
+"Phocoenoides dalli",
+"II",
+false,
+"白腰鼠海豚"
+],
+[
+"海洋哺乳類",
+"抹香鯨",
+"Physeter macrocephalus",
+"I",
+true,
+"抹香鯨"
+],
+[
+"海洋哺乳類",
+"恒河豚",
+"Platanista gangetica",
+"I",
+false,
+"河豚"
+],
+[
+"海洋哺乳類",
+"拉河豚",
+"Pontoporia blainvillei",
+"II",
+false,
+"拉河豚"
+],
+[
+"海洋哺乳類",
+"貝氏喙鯨",
+"Berardius bairdii",
+"I",
+false,
+"貝氏喙鯨"
+],
+[
+"海洋哺乳類",
+"阿氏喙鯨",
+"Berardius arnuxii",
+"I",
+false,
+"阿氏喙鯨"
+],
+[
+"海洋哺乳類",
+"北瓶鼻鯨",
+"Hyperoodon ampullatus",
+"I",
+false,
+"北瓶鼻鯨"
+],
+[
+"海洋哺乳類",
+"南瓶鼻鯨",
+"Hyperoodon planifrons",
+"I",
+false,
+"南瓶鼻鯨"
+],
+[
+"海洋哺乳類",
+"朗氏喙鯨",
+"Indopacetus pacificus",
+"II",
+true,
+"朗氏喙鯨"
+],
+[
+"海洋哺乳類",
+"梭氏中喙鯨",
+"Mesoplodon bidens",
+"II",
+false,
+"梭氏中喙鯨"
+],
+[
+"海洋哺乳類",
+"柏氏中喙鯨",
+"Mesoplodon densirostris",
+"II",
+true,
+"柏氏中喙鯨"
+],
+[
+"海洋哺乳類",
+"杰氏中喙鯨",
+"Mesoplodon europaeus",
+"II",
+false,
+"杰氏中喙鯨"
+],
+[
+"海洋哺乳類",
+"長齒中喙鯨",
+"Mesoplodon layardii",
+"II",
+false,
+"長齒中喙鯨"
+],
+[
+"海洋哺乳類",
+"賀氏中喙鯨",
+"Mesoplodon hectori",
+"II",
+false,
+"賀氏中喙鯨"
+],
+[
+"海洋哺乳類",
+"哥氏中喙鯨",
+"Mesoplodon grayi",
+"II",
+false,
+"哥氏中喙鯨"
+],
+[
+"海洋哺乳類",
+"史氏中喙鯨",
+"Mesoplodon stejnegeri",
+"II",
+false,
+"史氏中喙鯨"
+],
+[
+"海洋哺乳類",
+"安氏中喙鯨",
+"Mesoplodon bowdoini",
+"II",
+false,
+"安氏中喙鯨"
+],
+[
+"海洋哺乳類",
+"初氏中喙鯨",
+"Mesoplodon mirus",
+"II",
+false,
+"初氏中喙鯨"
+],
+[
+"海洋哺乳類",
+"銀杏齒中喙鯨",
+"Mesoplodon ginkgodens",
+"II",
+true,
+"銀杏齒中喙鯨"
+],
+[
+"海洋哺乳類",
+"哈氏中喙鯨",
+"Mesoplodon carlhubbsi",
+"II",
+false,
+"哈氏中喙鯨"
+],
+[
+"海洋哺乳類",
+"佩氏中喙鯨",
+"Mesoplodon perrini",
+"II",
+false,
+"佩氏中喙鯨"
+],
+[
+"海洋哺乳類",
+"小中喙鯨",
+"Mesoplodon peruvianus",
+"II",
+false,
+"小中喙鯨"
+],
+[
+"海洋哺乳類",
+"鏟齒中喙鯨",
+"Mesoplodon traversii",
+"II",
+false,
+"鏟齒中喙鯨"
+],
+[
+"海洋哺乳類",
+"謝氏喙鯨",
+"Tasmacetus shepherdi",
+"II",
+false,
+"謝氏喙鯨"
+],
+[
+"海洋哺乳類",
+"柯氏喙鯨",
+"Ziphius cavirostris",
+"II",
+true,
+"柯氏喙鯨"
+],
+[
+"海洋哺乳類",
+"印度太平洋儒艮",
+"Dugong dugon",
+"I",
+true,
+"印度太平洋儒艮"
+],
+[
+"海洋哺乳類",
+"亞馬遜海牛",
+"Trichechus inunguis",
+"I",
+false,
+"亞馬遜海牛"
+],
+[
+"海洋哺乳類",
+"北美海牛",
+"Trichechus manatus",
+"I",
+false,
+"北美海牛"
+],
+[
+"海洋哺乳類",
+"非洲海牛",
+"Trichechus senegalensis",
+"I",
+false,
+"非洲海牛"
+],
+[
+"海洋鳥類",
+"玄燕鷗",
+"Anous stolidus",
+"II",
+true,
+"玄燕鷗"
+],
+[
+"海洋鳥類",
+"遺鷗",
+"Larus relictus",
+"I",
+true,
+"遺鷗"
+],
+[
+"海洋鳥類",
+"白眉燕鷗",
+"Onychoprion anaethetus\n(Synonym : Sterna anaethetus)",
+"II",
+null,
+null
+],
+[
+"海洋鳥類",
+"黑嘴鷗",
+"Saundersilarus saundersi",
+"II",
+true,
+"黑嘴鷗"
+],
+[
+"海洋鳥類",
+"紅燕鷗（粉紅燕鷗）",
+"Sterna dougallii",
+"II",
+true,
+"紅燕鷗"
+],
+[
+"海洋鳥類",
+"蒼燕鷗",
+"Sterna sumatrana",
+"II",
+true,
+"蒼燕鷗"
+],
+[
+"海洋鳥類",
+"小燕鷗",
+"Sternula albifrons\n(Synonym : Sterna albifrons)",
+"II",
+null,
+null
+],
+[
+"海洋鳥類",
+"鳳頭燕鷗",
+"Thalasseus bergii\n(Synonym : Sterna bergii)",
+"II",
+null,
+null
+],
+[
+"海洋鳥類",
+"黑嘴端鳳頭燕鷗",
+"Thalasseus bernsteini\n(Synonym : Sterna bernsteini)",
+"I",
+null,
+null
+],
+[
+"海洋鳥類",
+"白腹軍艦鳥",
+"Fregata andrewsi",
+"I",
+true,
+"聖誕島軍艦鳥"
+],
+[
+"海洋鳥類",
+"粉嘴鰹鳥",
+"Papasula abbotti",
+"I",
+false,
+"粉嘴鰹鳥"
+],
+[
+"海洋鳥類",
+"卷羽鵜鶘",
+"Pelecanus crispus",
+"I",
+true,
+"卷羽鵜鶘"
+],
+[
+"海洋鳥類",
+"短尾信天翁",
+"Phoebastria albatrus",
+"I",
+true,
+"短尾信天翁"
+],
+[
+"海洋鳥類",
+"黑腳信天翁",
+"Phoebastria nigripes",
+"I",
+true,
+"黑腳信天翁"
+],
+[
+"海洋鳥類",
+"斑嘴環企鵝",
+"Spheniscus demersus",
+"II",
+false,
+"斑嘴環企鵝"
+],
+[
+"海洋鳥類",
+"洪氏環企鵝",
+"Spheniscus humboldti",
+"I",
+false,
+"洪氏環企鵝"
+],
+[
+"海洋爬蟲類",
+"海鬣蜥",
+"Amblyrhynchus cristatus",
+"II",
+false,
+"海鬣蜥"
+],
+[
+"海洋爬蟲類",
+"赤蠵龜",
+"Caretta caretta",
+"I",
+true,
+"赤蠵龜"
+],
+[
+"海洋爬蟲類",
+"綠蠵龜",
+"Chelonia mydas",
+"I",
+true,
+"綠蠵龜"
+],
+[
+"海洋爬蟲類",
+"玳瑁",
+"Eretmochelys imbricata",
+"I",
+true,
+"玳瑁"
+],
+[
+"海洋爬蟲類",
+"欖蠵龜",
+"Lepidochelys olivacea",
+"I",
+true,
+"欖蠵龜"
+],
+[
+"海洋爬蟲類",
+"肯氏龜",
+"Lepidochelys kempii",
+"I",
+false,
+"肯氏龜"
+],
+[
+"海洋爬蟲類",
+"平背龜",
+"Natator depressus",
+"I",
+false,
+"平背龜"
+],
+[
+"海洋爬蟲類",
+"革龜（稜皮龜）",
+"Dermochelys coriacea",
+"I",
+true,
+"革龜"
+],
+[
+"海洋魚類",
+"雙吻前口蝠?",
+"Manta birostris\n(Synonym : Mobula birostris )",
+"I",
+null,
+null
+],
+[
+"海洋魚類",
+"阿氏前口蝠?",
+"Manta alfredi\n(Synonym : Mobula alfredi )",
+"I",
+null,
+null
+],
+[
+"海洋魚類",
+"鯨鯊（豆腐鯊）",
+"Rhincodon typus",
+"I",
+true,
+"鯨鯊"
+],
+[
+"海洋魚類",
+"鋸鰩科所有種",
+"Pristidae spp.",
+"I",
+null,
+null
+],
+[
+"海洋魚類",
+"短吻鱘",
+"Acipenser brevirostrum",
+"I",
+false,
+"短吻鱘"
+],
+[
+"海洋魚類",
+"斑點鱘",
+"Acipenser sturio",
+"I",
+false,
+"斑點鱘"
+],
+[
+"海洋魚類",
+"曲紋唇魚（波紋唇魚、龍王鯛、蘇眉魚）",
+"Cheilinus undulatus",
+"II",
+true,
+"曲紋唇魚"
+],
+[
+"海洋魚類",
+"隆頭鸚哥魚（駝峰大鸚嘴魚）",
+"Bolbometopon muricatum",
+"II",
+true,
+"隆頭鸚哥魚"
+],
+[
+"海洋魚類",
+"加州犬形黃花魚",
+"Totoaba macdonaldi",
+"I",
+false,
+"加州犬形黃花魚"
+],
+[
+"海洋魚類",
+"腔棘魚屬所有種",
+"Latimeria spp.",
+"I",
+null,
+null
+],
+[
+"其他種類之物種",
+"柴山多杯孔珊瑚",
+"Polycyathus chaishanensis",
+"I",
+true,
+"柴山多杯孔珊瑚"
+],
+[
+"其他種類之物種",
+"福爾摩沙偽絲珊瑚",
+"Pseudosiderastrea formosa",
+"I",
+true,
+"福爾摩沙偽絲珊瑚"
+]
+]

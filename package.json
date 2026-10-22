@@ -1,0 +1,17 @@
+{
+  "name": "lun-seamuseum",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev --port 8814",
+    "test": "python -X utf8 tests/test_data.py",
+    "check": "python -X utf8 tools/ai_check.py --all && python -X utf8 tools/unit_check.py && python -X utf8 tests/test_data.py && python -X utf8 scripts/check-simplified.py && python -X utf8 scripts/build-font.py --check",
+    "typecheck": "tsc"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^5",
+    "typescript": "^7.0.2",
+    "wrangler": "^4"
+  }
+}

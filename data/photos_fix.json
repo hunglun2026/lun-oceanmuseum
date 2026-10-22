@@ -1,0 +1,85 @@
+{
+ "_說明": "id → 指定 File:xxx（字串）、null（不用照片）、或 {exclude:[不要的檔名], why}；2026-10-22 Claude 看縮圖總表判斷",
+ "t0050262": {
+  "exclude": [
+   "File:Chimaera phantasma.jpg"
+  ],
+  "why": "玻璃瓶標本"
+ },
+ "t0030339": {
+  "exclude": [
+   "File:Susu at Giant Hypermarket Kota Damansara 20230203 105744.jpg"
+  ],
+  "why": "冰上漁獲"
+ },
+ "t0029658": {
+  "exclude": [
+   "File:More Sharks.jpg",
+   "File:Heterodontus zebra distmap.png"
+  ],
+  "why": "水族館遠拍且拍到人"
+ },
+ "t0032984": {
+  "exclude": [
+   "File:Sphyrna zygaena 106632903.jpg"
+  ],
+  "why": "沙灘死鯊"
+ },
+ "t0029037": {
+  "exclude": [
+   "File:Etmopterus molleri.JPG",
+   "File:Etmopterus molleri distmap.png"
+  ],
+  "why": "玻璃瓶標本"
+ },
+ "t0052487": {
+  "exclude": [
+   "File:XRF-Pempheris oualensis.jpg"
+  ],
+  "why": "手繪不像本種"
+ },
+ "t0032644": {
+  "exclude": [
+   "File:Bycatch fish species (10.3897-zookeys.843.32410) Figure 4.jpg"
+  ],
+  "why": "多種拼圖"
+ },
+ "t0056332": {
+  "exclude": [
+   "File:Squalus japonicus (10.3897-zse.96.51962) Figure 4.jpg",
+   "File:Dermal denticles (10.3897-zse.96.51962) Figure 7.jpg"
+  ],
+  "why": "學術拼圖"
+ },
+ "t0031482": {
+  "exclude": [
+   "File:Species of Parabembras.jpg",
+   "File:Parabembras (10.3897-zookeys.740.21729) Figure 2.jpg"
+  ],
+  "why": "X光片"
+ },
+ "t0049629": {
+  "exclude": [
+   "File:Fishes of India. Atlas. Plate XV.jpg"
+  ],
+  "why": "多種魚整版"
+ },
+ "t0027421": {
+  "exclude": [
+   "File:Lejap u5.jpg"
+  ],
+  "why": "托盤標本"
+ },
+ "t0028604": {
+  "exclude": [
+   "File:Zenopsis-nebulosa transparent specimen NMMBA.jpg"
+  ],
+  "why": "透明染色標本"
+ },
+ "t0030468": {
+  "exclude": [
+   "File:D. Marcus Elieser Bloch's, ausübenden Arztes zu Berlin ... Oeconomische Naturgeschichte der Fische Deutschlands (20689358288).jpg"
+  ],
+  "why": "畫了兩種魚"
+ }
+}

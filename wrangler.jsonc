@@ -1,0 +1,15 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "sea-explorer",
+  "main": "src/index.ts",
+  "compatibility_date": "2025-01-01",
+  "observability": { "enabled": true },
+  // 網頁（public/）都是靜態檔；只有 /admin/* 先進程式。沒有資料庫：資料在 public/data/*.json，由本機 tools/ 產生
+  "assets": { "directory": "./public", "binding": "ASSETS", "run_worker_first": ["/admin/*"], "html_handling": "auto-trailing-slash" },
+  // 自訂網域：部署時 Cloudflare 自動建 DNS 與憑證（hunglun.com 在同一個帳號）
+  "routes": [{ "pattern": "sea.hunglun.com", "custom_domain": true }],
+  // 每月 1 日台灣 03:00（UTC 前一天 19:00）檢查 data.gov.tw 有沒有更新，有就 ntfy 通知（整理資料在本機跑）
+  "triggers": { "crons": ["0 19 1 * *"] },
+  "vars": { "APP_VERSION": "0.1.0" }
+  // secrets（wrangler secret put）：NTFY_TOPIC、ADMIN_TOKEN
+}

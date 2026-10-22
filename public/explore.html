@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>海洋探究｜海洋探險家</title>
+<meta name="description" content="用海洋保育署的環境 DNA 測站與鯨豚、海龜擱淺紀錄做探究，適合國中高中。">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/css/style.css?v=1">
+</head>
+<body data-page="explore">
+<main>
+  <h1>🔬 海洋探究</h1>
+  <p class="lead">用政府開放資料自己找答案。適合國中、高中；資料是真實調查結果，沒有標準答案的問題請小組討論。</p>
+  <h2>1. 環境 DNA：海水裡藏著哪些魚？</h2>
+  <p class="lead">海洋保育署在臺灣周邊 103 個測站舀海水，分析水中的 DNA 片段，就知道附近有哪些魚。圓越大，偵測到的魚種越多。點一個測站看看。</p>
+  <div class="mapbox"><div id="map" class="map"></div><div id="stinfo" class="panel"></div></div>
+  <p class="lead" id="ew"></p>
+  <div class="panel"><b>想一想：</b>
+    <ol><li>偵測到最多魚種的測站在哪一區？你覺得為什麼？（提示：看看那裡是不是珊瑚礁、水深多少）</li>
+    <li>東部和西部的平均魚種數差多少？這能說明東部的魚比較多嗎？還要考慮什麼（測站數、採樣深度、採樣日期）？</li>
+    <li>環境 DNA 偵測到某種魚，就代表那裡一定有活的魚嗎？</li></ol></div>
+  <h2>2. 擱淺紀錄：鯨豚和海龜為什麼上岸？</h2>
+  <p class="lead">「海洋保育類動物救援組織網（MARN）」記錄每一筆擱淺通報。看看長條圖，再回答下面的問題。</p>
+  <div id="strand"></div>
+  <div class="panel"><b>想一想：</b>
+    <ol><li>鯨豚擱淺最多的縣市是哪裡？那些地方有什麼共同點？</li>
+    <li>海龜擱淺原因裡有「混獲」和「廢棄魚網纏繞」，這和人類的哪些活動有關？</li>
+    <li>每年筆數變多或變少，一定代表擱淺變多或變少嗎？通報的人變多也會影響嗎？</li></ol>
+    <p style="font-size:.85rem">資料來源：海洋委員會海洋保育署（<a href="https://data.gov.tw/dataset/172487" target="_blank" rel="noopener">eDNA 調查</a>、<a href="https://data.gov.tw/dataset/157624" target="_blank" rel="noopener">鯨豚擱淺</a>、<a href="https://data.gov.tw/dataset/157957" target="_blank" rel="noopener">海龜擱淺</a>），政府資料開放授權條款第1版。地圖輪廓：Natural Earth（公有領域）。</p></div>
+</main>
+<script src="/js/data.js?v=1"></script>
+<script src="/js/layout.js?v=1"></script>
+<script src="/js/fx.js?v=1"></script>
+<script src="/js/progress.js?v=1"></script>
+<script src="/js/p-explore.js?v=1"></script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>老師專區｜海洋探險家</title>
+<meta name="description" content="學習單、出題投影、搶答計分板與四個海洋課程包，一鍵帶入。">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/css/style.css?v=1">
+</head>
+<body data-page="teacher">
+<main>
+  <h1>🍎 老師專區</h1>
+  <p class="lead">備課、上課、評量都在這裡。所有資料只存在這台電腦，不會上傳。第一次用請看<a href="/help#teacher">使用說明</a>。</p>
+
+  <div class="tabs noprint" role="tablist" aria-label="老師工具">
+    <button class="tab" role="tab" aria-selected="true" data-tab="sheet">🖨️ 學習單</button>
+    <button class="tab" role="tab" aria-selected="false" data-tab="slides">📽️ 出題投影</button>
+    <button class="tab" role="tab" aria-selected="false" data-tab="board">🏆 搶答計分板</button>
+    <button class="tab" role="tab" aria-selected="false" data-tab="guide">📚 課程包</button>
+  </div>
+
+  <section id="tab-sheet" class="panel">
+    <div class="form-row noprint" id="ctl">
+      <label>主題<select id="theme"></select></label>
+      <label>題型<select id="kind"></select></label>
+      <label>題數<select id="num"><option>5</option><option selected>8</option><option>10</option><option>12</option><option>15</option></select></label>
+      <label style="grid-auto-flow:column;align-items:center;gap:8px"><input type="checkbox" id="withAns" checked style="width:24px;height:24px"> 附答案頁</label>
+    </div>
+    <p class="noprint"><button class="btn primary" id="gen" disabled>產生學習單</button> <button class="btn" id="print" disabled>列印</button></p>
+    <div id="sheet" class="sheet" hidden></div>
+  </section>
+
+  <section id="tab-slides" class="panel" hidden>
+    <p class="noprint">用上面「學習單」分頁選好的主題、題型、題數出題。</p>
+    <p class="noprint"><button class="btn primary" id="gen2" disabled>開始出題</button></p>
+    <div id="slide" class="stage" hidden></div>
+  </section>
+
+  <section id="tab-board" class="panel" hidden></section>
+
+  <section id="tab-guide" class="panel" hidden>
+    <h2 style="margin-top:0">四個現成課程包（每包 40 分鐘）</h2>
+    <p class="lead">按「一鍵帶入學習單」會自動選好主題與題型並產生學習單，可直接列印。頁首的「程度」會決定選項數和介紹文字的深淺，上課前先切到班級程度。實際請依貴校課程計畫調整。</p>
+    <div class="packs">
+      <article class="pack">
+        <h3>🧩 海洋生物分類</h3>
+        <p><b>學習目標</b>：分辨鯊魚、魟、鰻、比目魚、鯨豚、海龜等類群，說出外形上的差別。</p>
+        <ol>
+          <li><b>暖身 5 分</b>：投影<a href="/guess">猜猜我是誰</a>的全班搶答，用計分板記分。</li>
+          <li><b>闖關 10 分</b>：<a href="/classify">分類闖關</a>先玩入門，再挑戰。</li>
+          <li><b>比一比 10 分</b>：在<a href="/animals">小百科</a>挑一種鯊魚、一種鯨豚「比一比」，討論「鯨鯊是鯨還是鯊」。</li>
+          <li><b>練習 10 分</b>：學習單「屬於哪一類」。</li>
+          <li><b>回顧 5 分</b>：打開<a href="/passport">探險護照</a>看徽章。</li>
+        </ol>
+        <button class="btn primary" data-pack="all,group,10">一鍵帶入學習單</button>
+      </article>
+      <article class="pack">
+        <h3>🗺️ 海洋棲地與海生館</h3>
+        <p><b>學習目標</b>：知道河口、岩礁、沙泥底、珊瑚礁、大洋、深海住著不同的生物，對應海生館三個展館。</p>
+        <ol>
+          <li><b>參觀 10 分</b>：<a href="/halls">逛海生館</a>三個展館，各點進去看幾種生物。</li>
+          <li><b>闖關 15 分</b>：<a href="/habitat">誰住哪片海</a> 10 題，再玩「在海生館哪一館」。</li>
+          <li><b>練習 15 分</b>：學習單「住在哪裡」。</li>
+        </ol>
+        <button class="btn primary" data-pack="all,habitat,8">一鍵帶入學習單</button>
+      </article>
+      <article class="pack">
+        <h3>🛡️ 海洋保育</h3>
+        <p><b>學習目標</b>：認識保育等級，說出海洋生物遇到的危險和我們能做的一件事。</p>
+        <ol>
+          <li><b>閱讀 10 分</b>：<a href="/units#bluewhale">特展教室「巨鯨之路」</a>，讀完做 5 題。</li>
+          <li><b>認識 10 分</b>：<a href="/conserve">保育小尖兵</a>的兩道階梯與「牠們遇到什麼危險」。</li>
+          <li><b>對決 10 分</b>：玩「誰比較危險」。</li>
+          <li><b>練習 10 分</b>：學習單「臺灣保育類」看圖認生物，背面寫一句「我能做的事」。</li>
+        </ol>
+        <button class="btn primary" data-pack="prot,picture,8">一鍵帶入學習單</button>
+      </article>
+      <article class="pack">
+        <h3>📖 特展閱讀：鯊魚</h3>
+        <p><b>學習目標</b>：從文章找出重點，修正「鯊魚很危險」的刻板印象。</p>
+        <ol>
+          <li><b>預測 5 分</b>：先問全班「鯊魚會吃人嗎？」，舉手統計。</li>
+          <li><b>閱讀 15 分</b>：<a href="/units#shark">特展教室「鯊魚其實很怕我們」</a>，讀完做 5 題。</li>
+          <li><b>延伸 10 分</b>：<a href="/animals?g=shark">小百科篩選鯊魚</a>，找找看哪種住在深海。</li>
+          <li><b>練習 10 分</b>：學習單（特展：鯊魚）。</li>
+        </ol>
+        <button class="btn primary" data-pack="u-shark,mix,5">一鍵帶入學習單</button>
+      </article>
+    </div>
+    <h2>各工具對應的學習重點</h2>
+    <ul>
+      <li><b>海洋小百科</b>、<b>比一比</b>：自然科學「生物的特徵」、比較異同；查找資料。</li>
+      <li><b>逛海生館</b>、<b>誰住哪片海</b>：自然科學「生物與環境」；海洋教育「海洋資源與生態」。</li>
+      <li><b>特展教室</b>：閱讀理解、擷取訊息；海洋教育。</li>
+      <li><b>分類闖關</b>、<b>翻牌配對</b>：自然科學「生物的分類」，觀察外形。</li>
+      <li><b>猜猜我是誰</b>：觀察、歸納與推理；表達與聆聽。</li>
+      <li><b>保育小尖兵</b>：環境教育「生物多樣性與保育」。</li>
+      <li><b>海洋探究</b>（高中）：用政府開放資料做探究與資料判讀。</li>
+    </ul>
+    <h2>使用小提醒</h2>
+    <ul>
+      <li>全班投影建議用「猜猜我是誰」的全班搶答模式，按空白鍵出下一個線索。</li>
+      <li>遊戲結束會列出答錯的生物，可按「只練錯的」再練一次。</li>
+      <li>國小、幼兒園的介紹是本站依原始資料改寫的白話版，國中可展開原文，高中直接讀原文。</li>
+      <li>棲地、類群是本站依原始資料整理，少數可能與課本寫法略有出入，可當作討論題。</li>
+    </ul>
+  </section>
+</main>
+<script src="/js/data.js?v=1"></script>
+<script src="/js/layout.js?v=1"></script>
+<script src="/js/fx.js?v=1"></script>
+<script src="/js/progress.js?v=1"></script>
+<script src="/js/quiz.js?v=1"></script>
+<script src="/js/qgen.js?v=1"></script>
+<script src="/js/p-board.js?v=1"></script>
+<script src="/js/p-teacher.js?v=1"></script>
+</body>
+</html>

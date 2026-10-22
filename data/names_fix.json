@@ -1,0 +1,20 @@
+{
+ "_說明": "藏品名稱 → 學名（人工指定，names.py 會再向 TaiCOL 確認）；null＝剔除。2026-10-22 Claude 依原文形態判斷",
+ "點帶石斑": "Epinephelus coioides",
+ "橫帶鸚哥魚": "Scarus scaber",
+ "橫帶牛尾魚": "Grammoplites scaber",
+ "射水魚": "Toxotes jaculatrix",
+ "紅目大眼鯛": "Priacanthus macracanthus",
+ "高體盔魚": "Pteragogus flagellifer",
+ "柴魚": "Microcanthus strigatus",
+ "帶鳚": "Xiphasia setifer",
+ "極樂鰕虎": "Rhinogobius giurinus",
+ "澳洲黑鯛": "Acanthopagrus australis",
+ "短吻鰏": "Leiognathus brevirostris",
+ "單棘魨": null,
+ "蘭氏鯽": null,
+ "圓魨": null,
+ "跳岩鳚": null,
+ "臺灣石(魚賓)": null,
+ "長崎斜棘(魚銜)": null
+}

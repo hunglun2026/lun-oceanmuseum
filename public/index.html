@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>海洋探險家｜跟著海生館認識海洋生物</title>
+<meta name="description" content="以國立海洋生物博物館的展館與特展為主題，認識臺灣海域約兩百種海洋生物：鯊魚、魟、珊瑚礁魚、鯨豚、海龜。幼兒園到高中四種程度，學習單、投影搶答一應俱全。">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/css/style.css?v=1">
+</head>
+<body data-page="home">
+<main>
+  <section class="w-hero">
+    <div class="w-floats" aria-hidden="true"><span>🐠</span><span>🦈</span><span>🐢</span><span>🐋</span><span>🪸</span><span>🐡</span><span>🦀</span><span>🐙</span></div>
+    <p class="w-eyebrow"><span>政府開放資料</span><span class="w-sep">·</span><span>幼兒園到高中</span></p>
+    <h1 class="w-title"><span class="w-line">跟著海生館</span><span class="w-line w-grad">認識 <span data-count>195</span> 種海洋生物</span><span class="w-line">一起去探險</span></h1>
+    <p class="w-sub">逛三個展館、讀特展、玩分類和猜謎、看真實的調查資料。<br>不用註冊、不用安裝，打開就能上課。</p>
+    <p class="w-cta-row"><a class="btn primary big" href="#start">從這裡開始 🐋</a> <a class="btn big" href="/teacher">我是老師</a> <a class="btn big" href="/help">📘 使用說明</a></p>
+    <a class="w-hint" href="#halls">↓ 向下滑動，看看可以玩什麼</a>
+  </section>
+
+  <!-- 引導入口：回答兩題（身分、程度），推薦從哪裡開始。程式在 p-home.js，選過的會記在這台裝置 -->
+  <section class="w-guide" id="start" aria-labelledby="g-title">
+    <h2 id="g-title"><span class="nobr">不知道從哪裡開始？</span><span class="nobr">回答兩個問題</span></h2>
+    <p class="lead"><span class="nobr">選完會推薦最適合的工具，</span><span class="nobr">程度也會自動設好。</span></p>
+    <div class="g-step" data-step="who">
+      <p class="g-q"><small>第 1 題，共 2 題</small>你是…</p>
+      <div class="g-opts">
+        <button class="g-opt" type="button" data-who="student"><span class="e" aria-hidden="true">🎒</span><b>學生</b><small>自己看海洋生物、玩遊戲、蒐集徽章</small></button>
+        <button class="g-opt" type="button" data-who="teacher"><span class="e" aria-hidden="true">🍎</span><b>老師</b><small>上課投影、印學習單、全班搶答</small></button>
+      </div>
+    </div>
+    <div class="g-step" data-step="lv" hidden>
+      <p class="g-q"><small>第 2 題，共 2 題</small><span id="g-lvq">你幾年級？</span></p>
+      <div class="g-opts">
+        <button class="g-opt" type="button" data-lv="k"><span class="e" aria-hidden="true">🧸</span><b>幼兒園</b><small>看照片、聽聲音，不用認字</small></button>
+        <button class="g-opt" type="button" data-lv="e"><span class="e" aria-hidden="true">🌱</span><b>國小</b><small>三選一，附白話介紹</small></button>
+        <button class="g-opt" type="button" data-lv="j"><span class="e" aria-hidden="true">📗</span><b>國中</b><small>四選一，可以展開讀原文</small></button>
+        <button class="g-opt" type="button" data-lv="s"><span class="e" aria-hidden="true">🎓</span><b>高中</b><small>讀原文、看學名，用真實資料做探究</small></button>
+      </div>
+      <div class="g-nav"><button class="btn" type="button" data-back>← 上一步</button></div>
+    </div>
+    <div class="g-step" data-step="done" hidden>
+      <p class="g-q"><small>推薦給你</small><span class="g-who" id="g-who"></span></p>
+      <div class="cards g-recs" id="g-recs"></div>
+      <div class="g-nav"><button class="btn" type="button" data-reset>重新選擇</button> <a class="btn" href="/help">📘 看使用說明</a></div>
+    </div>
+  </section>
+
+  <h2 class="w-reveal" id="halls">逛海生館的三個展館</h2>
+  <p class="lead">屏東的國立海洋生物博物館把海洋分成三個館，點一館走進去看看。</p>
+  <div class="halls" id="hallcards"></div>
+
+  <section class="w-stats" aria-label="收錄數量">
+    <div class="w-stat w-reveal"><b class="w-num" data-w="species">195</b><span>種海洋生物</span></div>
+    <div class="w-stat w-reveal" style="--delay:1"><b class="w-num" data-w="photos">166</b><span>種有照片</span></div>
+    <div class="w-stat w-reveal" style="--delay:2"><b class="w-num" data-w="units">8</b><span>個特展單元</span></div>
+    <div class="w-stat w-reveal" style="--delay:3"><b class="w-num" data-w="edna">103</b><span>個調查測站</span></div>
+  </section>
+
+  <h2 class="w-reveal">今天游過來的海洋生物</h2>
+  <p class="lead">每次打開都會換一批，點一下看介紹。</p>
+  <div class="grid" id="today"></div>
+
+  <h2 class="w-reveal">十二個學習工具</h2>
+  <div class="cards">
+    <a class="tool w-reveal" href="/animals"><div class="ico">📖</div><h3>海洋小百科</h3><p>照片、白話介紹、住哪裡、吃什麼、保育等級，還能比一比。</p><span class="tag">認識生物</span></a>
+    <a class="tool w-reveal" style="--delay:1" href="/halls"><div class="ico">🏛️</div><h3>逛海生館</h3><p>台灣水域館、珊瑚王國館、世界水域館，各住著哪些生物。</p><span class="tag">生物與環境</span></a>
+    <a class="tool w-reveal" style="--delay:2" href="/units"><div class="ico">📗</div><h3>特展教室</h3><p>鯊魚、藍鯨、深海、有毒生物、海洋廢棄物，讀一篇答五題。</p><span class="tag">閱讀理解</span></a>
+    <a class="tool w-reveal" style="--delay:3" href="/classify"><div class="ico">🧩</div><h3>分類闖關</h3><p>看照片分出鯊魚、魟、鰻、比目魚、鯨豚、海龜。</p><span class="tag">生物分類</span></a>
+    <a class="tool w-reveal" href="/habitat"><div class="ico">🗺️</div><h3>誰住哪片海</h3><p>河口、岩礁、珊瑚礁、大洋、深海，還要找出在海生館哪一館。</p><span class="tag">棲地</span></a>
+    <a class="tool w-reveal" style="--delay:1" href="/guess"><div class="ico">🔍</div><h3>猜猜我是誰</h3><p>線索一個一個出現；幼兒園是聽名字找照片。可以投影全班搶答。</p><span class="tag">觀察推理</span></a>
+    <a class="tool w-reveal" style="--delay:2" href="/memory"><div class="ico">🃏</div><h3>翻牌配對</h3><p>照片配名字，幼兒園是照片配照片，翻開會唸名字。</p><span class="tag">觀察記憶</span></a>
+    <a class="tool w-reveal" style="--delay:3" href="/conserve"><div class="ico">🛡️</div><h3>保育小尖兵</h3><p>臺灣保育類與國際紅色名錄，看看牠們遇到什麼危險。</p><span class="tag">環境教育</span></a>
+    <a class="tool w-reveal" href="/explore"><div class="ico">🔬</div><h3>海洋探究</h3><p>環境 DNA 測站地圖、鯨豚海龜擱淺紀錄，用真實資料找答案。</p><span class="tag">國中・高中</span></a>
+    <a class="tool w-reveal" style="--delay:1" href="/passport"><div class="ico">🎫</div><h3>探險護照</h3><p>看過的生物會蓋章，玩遊戲拿星星換徽章。</p><span class="tag">自主學習</span></a>
+    <a class="tool w-reveal" style="--delay:2" href="/teacher"><div class="ico">🍎</div><h3>老師專區</h3><p>四個課程包、學習單、出題投影、搶答計分板。</p><span class="tag">備課好幫手</span></a>
+    <a class="tool w-reveal" style="--delay:3" href="/help"><div class="ico">📘</div><h3>使用說明</h3><p>每個工具的畫面、步驟和常見問題。</p><span class="tag">第一次來看這裡</span></a>
+  </div>
+
+  <h2 class="w-reveal">老師 3 分鐘上手</h2>
+  <div class="panel w-reveal">
+    <ol class="steps">
+      <li><div><b>先在右上角選程度</b>：幼兒園、國小、國中、高中，介紹文字、選項數、學習單都會跟著換。</div></li>
+      <li><div><b>投影「猜猜我是誰」或「特展教室」</b>，全班一起看、舉手搶答，不需要每人一台裝置。</div></li>
+      <li><div><b>到「老師專區」挑一個課程包</b>，按一下就產生可列印的學習單和答案。</div></li>
+    </ol>
+    <p class="lead">第一次使用？<a href="/help">看完整使用說明</a>，有每個工具的畫面與步驟。</p>
+    <p class="lead" style="margin-bottom:0">學生用平板或電腦也能自己玩，進度只存在自己的裝置，不蒐集任何個人資料。</p>
+  </div>
+
+  <section class="w-end w-reveal">
+    <h2>準備好下水了嗎？</h2>
+    <p class="lead">從一種你最喜歡的海洋生物開始。</p>
+    <p><a class="btn primary big" href="/animals">開始探險 🐋</a> <a class="btn big" href="/halls">先逛海生館</a></p>
+  </section>
+</main>
+<script src="/js/data.js?v=1"></script>
+<script src="/js/layout.js?v=1"></script>
+<script src="/js/fx.js?v=1"></script>
+<script src="/js/progress.js?v=1"></script>
+<script src="/js/p-home.js?v=1"></script>
+</body>
+</html>
