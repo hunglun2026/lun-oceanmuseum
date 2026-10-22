@@ -1,0 +1,8 @@
+[
+ {"do": "goto", "url": "https://ocean.hunglun.com/animals#t0028999"},
+ {"do": "eval", "expr": "(async()=>{const w=ms=>new Promise(r=>setTimeout(r,ms));await w(3000);const i=document.querySelector('#dlg-body .photo');return '標題='+document.querySelector('#dlg-body h2').textContent+' 圖='+(i&&i.naturalWidth)+' 說明='+document.querySelector('#dlg-body .credit').textContent.slice(0,40)})()"},
+ {"do": "shot", "path": "D:/claude測試資料/lun-seamuseum/2026-10-22/online/18-ai-detail.png"},
+ {"do": "goto", "url": "https://ocean.hunglun.com/"},
+ {"do": "eval", "expr": "(async()=>{const w=ms=>new Promise(r=>setTimeout(r,ms));await w(1500);const t=document.getElementById('tour');scrollTo(0,t.getBoundingClientRect().top+scrollY+(t.offsetHeight-innerHeight)*(4/7));await w(1500);return '第5張透明度='+document.querySelectorAll('.w-panel')[4].style.opacity})()"},
+ {"do": "shot", "path": "D:/claude測試資料/lun-seamuseum/2026-10-22/online/19-welcome.png"}
+]

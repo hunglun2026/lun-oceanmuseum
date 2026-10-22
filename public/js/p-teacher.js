@@ -55,7 +55,7 @@ Sea.boot(function (data) {
     }).join("");
     $("sheet").innerHTML =
       head(false) + body(false) +
-      '<p style="font-size:.8rem">資料來源：國立臺灣博物館典藏、海洋委員會海洋保育署、國立海洋生物博物館（政府資料開放平臺）。海洋探險家 sea.hunglun.com</p>' +
+      '<p style="font-size:.8rem">資料來源：國立臺灣博物館典藏、海洋委員會海洋保育署、國立海洋生物博物館（政府資料開放平臺）。海洋探險家 ocean.hunglun.com</p>' +
       ($("withAns").checked ? '<div class="pb"></div>' + head(true) + body(true) : "");
     $("sheet").hidden = false;
     $("print").disabled = false;
