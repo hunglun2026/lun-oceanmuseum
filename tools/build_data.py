@@ -1,6 +1,6 @@
 """合成網站資料：public/data/sea.json（物種、特展單元、展館）與 public/data/meta.json（筆數、資料集更新日期）。
 
-物種＝species.json 減去改寫標 skip 的；照片來自 photos.json（自由授權）或 data/photos/ai/（AI 插圖）。
+物種＝species.json 減去改寫標 skip 的；照片來自 photos.json（自由授權）或 CACHE/photos/ai/（AI 插圖）。
 eDNA、擱淺彙整另外寫 edna.json、strand.json（高中探究頁才載）。
 用法：python tools/build_data.py
 """
@@ -12,7 +12,7 @@ import re
 import sys
 
 from ai_brief import teachable
-from common import RAW, ROOT, load_json, save_json
+from common import CACHE, RAW, ROOT, load_json, save_json
 
 PUB = ROOT / "public" / "data"
 # 展館：海生館 9693 的三個常設館；棲地 → 展館
@@ -33,7 +33,7 @@ def photo_of(sid, photos) -> dict | None:
         p = photos.get(sid)
         if p:
             return {"by": p["artist"] or p["credit"], "lic": p["license"], "page": p["page"]}
-        if (ROOT / "data" / "photos" / "ai" / f"{sid}.png").exists():
+        if (CACHE / "photos" / "ai" / f"{sid}.png").exists():
             return {"ai": True}
     return None
 
@@ -49,7 +49,7 @@ def main():
             continue
         orig = teachable(s["text"])
         species.append({
-            "id": s["id"], "name": s["name"], "sci": s["sci"], "fam": s["family_zh"], "famSci": s["family"],
+            "id": s["id"], "name": s["name"], "sci": s["sci"], "fam": s["family_zh"] if s["family_zh"] not in ("", "科") else "", "famSci": s["family"],
             "kind": s["kind"], "g": a["g"], "h": a["h"], "d": a["d"], "hall": HALL_OF.get(a["h"]),
             "k": a["k"], "e": a["e"], "c": a["c"], "orig": orig[:900] + ("…" if len(orig) > 900 else ""),
             "prot": s["protected"], "iucn": s["iucn"], "endemic": s["endemic"],

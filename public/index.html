@@ -6,7 +6,7 @@
 <title>海洋探險家｜跟著海生館認識海洋生物</title>
 <meta name="description" content="以國立海洋生物博物館的展館與特展為主題，認識臺灣海域約兩百種海洋生物：鯊魚、魟、珊瑚礁魚、鯨豚、海龜。幼兒園到高中四種程度，學習單、投影搶答一應俱全。">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="/css/style.css?v=1">
+<link rel="stylesheet" href="/css/style.css?v=2">
 </head>
 <body data-page="home">
 <main>
@@ -16,7 +16,7 @@
     <h1 class="w-title"><span class="w-line">跟著海生館</span><span class="w-line w-grad">認識 <span data-count>195</span> 種海洋生物</span><span class="w-line">一起去探險</span></h1>
     <p class="w-sub">逛三個展館、讀特展、玩分類和猜謎、看真實的調查資料。<br>不用註冊、不用安裝，打開就能上課。</p>
     <p class="w-cta-row"><a class="btn primary big" href="#start">從這裡開始 🐋</a> <a class="btn big" href="/teacher">我是老師</a> <a class="btn big" href="/help">📘 使用說明</a></p>
-    <a class="w-hint" href="#halls">↓ 向下滑動，看看可以玩什麼</a>
+    <a class="w-hint" href="#tour">↓ 向下滑動，看看可以玩什麼</a>
   </section>
 
   <!-- 引導入口：回答兩題（身分、程度），推薦從哪裡開始。程式在 p-home.js，選過的會記在這台裝置 -->
@@ -46,6 +46,22 @@
       <div class="g-nav"><button class="btn" type="button" data-reset>重新選擇</button> <a class="btn" href="/help">📘 看使用說明</a></div>
     </div>
   </section>
+
+  <!-- TOUR:BEGIN 由 scripts/make_welcome.py 產生，不要手改 -->
+  <section class="w-tour" id="tour" aria-label="學習工具介紹">
+    <div class="w-tour-sticky">
+      <div class="w-panel"><img src="/img/welcome/whaleshark.webp" srcset="/img/welcome/whaleshark-480.webp 480w, /img/welcome/whaleshark.webp 1200w" sizes="(max-width: 760px) calc(100vw - 32px), 1100px" alt="鯨鯊" width="1200" height="800"><span class="w-pcredit">鯨鯊｜照片：<a href="https://commons.wikimedia.org/wiki/File:Whale_Shark_AdF.jpg" target="_blank" rel="noopener">Arturo de Frias Marques</a>，CC BY-SA 4.0</span><div class="w-panel-text"><span class="w-tag">01 / 08 · 自然科學</span><h2>海洋小百科</h2><p>臺灣海域將近兩百種海洋生物的照片和介紹，程度不同、說法不同，還能挑兩種比一比。</p><a class="btn primary" href="/animals">打開小百科 →</a></div></div>
+      <div class="w-panel"><img data-src="/img/welcome/napoleon.webp" data-srcset="/img/welcome/napoleon-480.webp 480w, /img/welcome/napoleon.webp 1200w" sizes="(max-width: 760px) calc(100vw - 32px), 1100px" alt="曲紋唇魚（蘇眉魚）" width="1200" height="800"><span class="w-pcredit">曲紋唇魚（蘇眉魚）｜照片：<a href="https://commons.wikimedia.org/wiki/File:Cheilinus_undulatus_-_R_Vasconcellos_-_582969181.jpeg" target="_blank" rel="noopener">R Vasconcellos</a>，CC BY 4.0</span><div class="w-panel-text"><span class="w-tag">02 / 08 · 生物與環境</span><h2>逛海生館</h2><p>跟著海生館的台灣水域館、珊瑚王國館、世界水域館，看看每種水域住著誰。</p><a class="btn primary" href="/halls">走進展館 →</a></div></div>
+      <div class="w-panel"><img data-src="/img/welcome/humpback.webp" data-srcset="/img/welcome/humpback-480.webp 480w, /img/welcome/humpback.webp 1200w" sizes="(max-width: 760px) calc(100vw - 32px), 1100px" alt="大翅鯨" width="1200" height="810"><span class="w-pcredit">大翅鯨｜照片：<a href="https://commons.wikimedia.org/wiki/File:Humpback_whales_in_singing_position.jpg" target="_blank" rel="noopener">Dr. Louis M. Herman.</a>，Public domain</span><div class="w-panel-text"><span class="w-tag">03 / 08 · 閱讀理解</span><h2>特展教室</h2><p>鯊魚、藍鯨、深海、有毒生物、海洋廢棄物，讀一篇海生館特展，答五題。</p><a class="btn primary" href="/units">讀一個特展 →</a></div></div>
+      <div class="w-panel"><img data-src="/img/welcome/manta.webp" data-srcset="/img/welcome/manta-480.webp 480w, /img/welcome/manta.webp 1200w" sizes="(max-width: 760px) calc(100vw - 32px), 1100px" alt="阿氏前口蝠鱝（珊瑚礁鬼蝠魟）" width="1200" height="900"><span class="w-pcredit">阿氏前口蝠鱝（珊瑚礁鬼蝠魟）｜照片：<a href="https://commons.wikimedia.org/wiki/File:Manta_alfredi_fushivaru_thila.jpg" target="_blank" rel="noopener">asands from London, UK</a>，CC BY-SA 2.0</span><div class="w-panel-text"><span class="w-tag">04 / 08 · 生物分類</span><h2>分類闖關</h2><p>鯊魚、魟、鰻、比目魚、鯨豚、海龜，看照片分一分，還有 60 秒挑戰。</p><a class="btn primary" href="/classify">開始闖關 →</a></div></div>
+      <div class="w-panel"><img data-src="/img/welcome/greenturtle.webp" data-srcset="/img/welcome/greenturtle-480.webp 480w, /img/welcome/greenturtle.webp 1200w" sizes="(max-width: 760px) calc(100vw - 32px), 1100px" alt="綠蠵龜" width="1200" height="800"><span class="w-pcredit">綠蠵龜｜照片：<a href="https://commons.wikimedia.org/wiki/File:Green_sea_turtle_(Chelonia_mydas)_Moorea.jpg" target="_blank" rel="noopener">Charles J. Sharp</a>，CC BY-SA 4.0</span><div class="w-panel-text"><span class="w-tag">05 / 08 · 棲地</span><h2>誰住哪片海</h2><p>河口、岩礁、珊瑚礁、大洋、深海，幫海洋生物找到家，再找出牠在海生館哪一館。</p><a class="btn primary" href="/habitat">幫牠找家 →</a></div></div>
+      <div class="w-panel"><img data-src="/img/welcome/sweetlips.webp" data-srcset="/img/welcome/sweetlips-480.webp 480w, /img/welcome/sweetlips.webp 1200w" sizes="(max-width: 760px) calc(100vw - 32px), 1100px" alt="斑胡椒鯛" width="1200" height="900"><span class="w-pcredit">斑胡椒鯛｜照片：<a href="https://commons.wikimedia.org/wiki/File:Harlequin_sweetlips_(Plectorhinchus_chaetodonoides)_(40815006613).jpg" target="_blank" rel="noopener">Rickard Zerpe</a>，CC BY 2.0</span><div class="w-panel-text"><span class="w-tag">06 / 08 · 觀察與推理</span><h2>猜猜我是誰</h2><p>線索一個一個出現，越早猜中分數越高；幼兒園聽名字找照片。</p><a class="btn primary" href="/guess">來猜謎 →</a></div></div>
+      <div class="w-panel"><img data-src="/img/welcome/hawksbill.webp" data-srcset="/img/welcome/hawksbill-480.webp 480w, /img/welcome/hawksbill.webp 1200w" sizes="(max-width: 760px) calc(100vw - 32px), 1100px" alt="玳瑁" width="1200" height="800"><span class="w-pcredit">玳瑁｜照片：<a href="https://commons.wikimedia.org/wiki/File:Tortuga_carey_(Eretmochelys_imbricata),_parque_nacional_Ras_Muhammad,_Egipto,_2022-03-28,_DD_56.jpg" target="_blank" rel="noopener">Diego Delso</a>，CC BY-SA 4.0</span><div class="w-panel-text"><span class="w-tag">07 / 08 · 環境教育</span><h2>保育小尖兵</h2><p>海龜、鯨豚為什麼越來越少？認識保育等級，想想我們能做什麼。</p><a class="btn primary" href="/conserve">認識保育 →</a></div></div>
+      <div class="w-panel"><img data-src="/img/welcome/orca.webp" data-srcset="/img/welcome/orca-480.webp 480w, /img/welcome/orca.webp 1200w" sizes="(max-width: 760px) calc(100vw - 32px), 1100px" alt="虎鯨" width="1200" height="798"><span class="w-pcredit">虎鯨｜照片：<a href="https://commons.wikimedia.org/wiki/File:Killerwhales_jumping.jpg" target="_blank" rel="noopener">Robert Pittman</a>，Public domain</span><div class="w-panel-text"><span class="w-tag">08 / 08 · 國中・高中</span><h2>海洋探究</h2><p>用海洋保育署的環境 DNA 測站和擱淺紀錄，自己找答案。</p><a class="btn primary" href="/explore">開始探究 →</a></div></div>
+      <div class="w-dots" aria-hidden="true"></div>
+    </div>
+  </section>
+  <!-- TOUR:END -->
 
   <h2 class="w-reveal" id="halls">逛海生館的三個展館</h2>
   <p class="lead">屏東的國立海洋生物博物館把海洋分成三個館，點一館走進去看看。</p>
@@ -95,10 +111,10 @@
     <p><a class="btn primary big" href="/animals">開始探險 🐋</a> <a class="btn big" href="/halls">先逛海生館</a></p>
   </section>
 </main>
-<script src="/js/data.js?v=1"></script>
-<script src="/js/layout.js?v=1"></script>
-<script src="/js/fx.js?v=1"></script>
-<script src="/js/progress.js?v=1"></script>
-<script src="/js/p-home.js?v=1"></script>
+<script src="/js/data.js?v=2"></script>
+<script src="/js/layout.js?v=2"></script>
+<script src="/js/fx.js?v=2"></script>
+<script src="/js/progress.js?v=2"></script>
+<script src="/js/p-home.js?v=2"></script>
 </body>
 </html>

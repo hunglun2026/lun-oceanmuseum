@@ -65,7 +65,7 @@ Sea.boot(function (data) {
   document.addEventListener("sea-level", render);
   function card(a) {
     const c = el('<button class="acard"><div class="info"><b>' + esc(a.name) + "</b><small>" + a.groupInfo.emoji + " " + esc(a.groupInfo.name) +
-      (a.protInfo ? " 🛡️" : "") + (a.toxic ? " ☠️" : "") + "</small></div></button>");
+      (a.protInfo ? " 🛡️" : "") + (a.toxic ? " ☠️" : "") + (a.photo && a.photo.ai ? " · AI 圖" : "") + "</small></div></button>");
     c.prepend(photo(a));
     c.onclick = () => open(a);
     return c;

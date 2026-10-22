@@ -1,5 +1,5 @@
-/* 首頁（歡迎頁）：引導入口（身分 → 程度 → 推薦）、三個展館入口、捲到才浮現、數字跳動、今天的海洋生物。
-   引導入口與動畫沿用故宮探險家 p-home.js（不含捲動放大切換）。樣式在 css/style.css 的「首頁」段。 */
+/* 首頁（歡迎頁）：引導入口（身分 → 程度 → 推薦）、捲動放大切換的歡迎導覽、三個展館入口、捲到才浮現、數字跳動、今天的海洋生物。
+   引導入口沿用故宮探險家、捲動放大切換照搬動物探險家。導覽面板由 scripts/make_welcome.py 產生；樣式在 css/style.css 的「首頁」與「歡迎導覽」段。 */
 (function () {
   "use strict";
   const clamp = (v, lo, hi) => Math.min(hi, Math.max(lo, v));
@@ -60,6 +60,64 @@
     document.addEventListener("sea-level", () => { if (who && !guide.querySelector('[data-step="done"]').hidden) done(); });
     if (who) done();
   }
+
+  // ---- 歡迎導覽：捲動放大切換（照搬動物探險家 p-home.js）。區塊高度＝張數 × 85vh，畫面固定，捲動進度決定顯示哪一張 ----
+  const tour = document.getElementById("tour");
+  const panels = tour ? [...tour.querySelectorAll(".w-panel")] : [];
+  const n = panels.length;
+  const dotsBox = tour && tour.querySelector(".w-dots");
+  const dots = panels.map((p, i) => {
+    const b = document.createElement("button");
+    b.setAttribute("aria-label", "跳到第 " + (i + 1) + " 張");
+    b.tabIndex = -1; // 鍵盤使用者直接用每張的按鈕，不用跳過一排圓點
+    b.onclick = () => {
+      const top = tour.getBoundingClientRect().top + scrollY;
+      scrollTo({ top: top + (tour.offsetHeight - innerHeight) * (i / Math.max(n - 1, 1)), behavior: reduce ? "auto" : "smooth" });
+    };
+    if (dotsBox) dotsBox.appendChild(b);
+    return b;
+  });
+  if (tour) tour.style.setProperty("--n", n);
+  const parts = panels.map((el) => ({ txt: el.querySelector(".w-panel-text"), links: [...el.querySelectorAll("a")], img: el.querySelector("img") }));
+  // 照片延後載入：8 張疊在同一個固定畫面，瀏覽器懶載入會以為都在畫面上而一次全抓；改成只載目前這張和前後幾張
+  function loadImg(i) {
+    const im = parts[i] && parts[i].img;
+    if (!im || !im.dataset.src) return;
+    if (im.dataset.srcset) im.srcset = im.dataset.srcset;
+    im.src = im.dataset.src;
+    delete im.dataset.src;
+  }
+  if (reduce) panels.forEach((_, i) => { parts[i].img.loading = "lazy"; loadImg(i); }); // 靜態排列時交給瀏覽器懶載入
+  function drawTour() {
+    if (!tour || reduce) return;
+    const rect = tour.getBoundingClientRect();
+    const progress = clamp(-rect.top / Math.max(rect.height - innerHeight, 1), 0, 1);
+    const cur = progress * Math.max(n - 1, 1);
+    const index = Math.min(n - 1, Math.round(cur));
+    if (rect.top < innerHeight * 1.5) [index - 1, index, index + 1, index + 2].forEach(loadImg); // 快捲到時才開始抓
+    panels.forEach((el, i) => {
+      const off = i - cur; // 負的＝已經看過（放大淡出），正的＝還沒輪到
+      const opacity = off < 0 ? clamp(1 + 1.3 * off, 0, 1) : clamp(2 * (1 - off), 0, 1);
+      const scale = off < 0 ? 1 - 0.4 * off : 1 - 0.1 * Math.min(off, 1);
+      el.style.opacity = opacity;
+      el.style.transform = "scale(" + scale + ")";
+      el.style.zIndex = off >= 0 ? 10 - Math.ceil(off) : 20;
+      el.style.pointerEvents = opacity > 0.85 ? "auto" : "none";
+      parts[i].links.forEach((a) => (a.tabIndex = opacity > 0.85 ? 0 : -1));
+      parts[i].txt.style.transform = "translateY(" + 8 * off + "vh)";
+      parts[i].txt.style.opacity = clamp(1 - 1.7 * Math.abs(off), 0, 1);
+    });
+    dots.forEach((d, i) => d.classList.toggle("active", i === index));
+  }
+  let ticking = false;
+  const onScroll = () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => { ticking = false; drawTour(); });
+  };
+  addEventListener("scroll", onScroll, { passive: true });
+  addEventListener("resize", onScroll);
+  drawTour();
 
   // ---- 捲到才浮現 ----
   function reveal() {
