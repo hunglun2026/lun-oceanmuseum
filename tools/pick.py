@@ -28,7 +28,7 @@ def wiki_intro(title: str, full=False) -> dict:
     if not full:
         q["exintro"] = 1
     r = json.loads(get("https://zh.wikipedia.org/w/api.php?" + urllib.parse.urlencode(q), 30,
-                       {"User-Agent": "lun-seamuseum/0.1 (education site; hunglun2026@gmail.com)"}))
+                       {"User-Agent": "lun-oceanmuseum/0.1 (education site; hunglun2026@gmail.com)"}))
     page = next(iter(r["query"]["pages"].values()))
     if "missing" in page:
         return {}

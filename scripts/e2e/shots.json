@@ -1,16 +1,16 @@
 [
  {"do": "goto", "url": "http://127.0.0.1:8814/"},
  {"do": "eval", "expr": "(async()=>{const w=ms=>new Promise(r=>setTimeout(r,ms));localStorage.setItem('sea-level','e');for(let y=0;y<document.body.scrollHeight;y+=400){scrollTo(0,y);await w(120)}await w(800);scrollTo(0,0);await w(300);return document.querySelectorAll('.w-reveal.in-view').length+' 個已浮現'})()"},
- {"do": "shot", "path": "D:\\claude測試資料\\lun-seamuseum\\2026-10-22\\11-home-scrolled.png", "full": true},
+ {"do": "shot", "path": "D:\\claude測試資料\\lun-oceanmuseum\\2026-10-22\\11-home-scrolled.png", "full": true},
  {"do": "goto", "url": "http://127.0.0.1:8814/animals#t0056065"},
  {"do": "eval", "expr": "(async()=>{const w=ms=>new Promise(r=>setTimeout(r,ms));await w(2000);const i=document.querySelector('#dlg-body .photo');return '大圖載入='+(i&&i.complete&&i.naturalWidth)})()"},
- {"do": "shot", "path": "D:\\claude測試資料\\lun-seamuseum\\2026-10-22\\12-detail-e.png"},
+ {"do": "shot", "path": "D:\\claude測試資料\\lun-oceanmuseum\\2026-10-22\\12-detail-e.png"},
  {"do": "goto", "url": "http://127.0.0.1:8814/units#bluewhale"},
  {"do": "eval", "expr": "(async()=>{const w=ms=>new Promise(r=>setTimeout(r,ms));for(let y=0;y<document.body.scrollHeight;y+=400){scrollTo(0,y);await w(100)}scrollTo(0,0);await w(500);return 'ok'})()"},
- {"do": "shot", "path": "D:\\claude測試資料\\lun-seamuseum\\2026-10-22\\13-unit-bluewhale.png", "full": true},
+ {"do": "shot", "path": "D:\\claude測試資料\\lun-oceanmuseum\\2026-10-22\\13-unit-bluewhale.png", "full": true},
  {"do": "goto", "url": "http://127.0.0.1:8814/guess"},
  {"do": "eval", "expr": "(async()=>{const w=ms=>new Promise(r=>setTimeout(r,ms));localStorage.setItem('sea-level','k');location.reload();return 'k'})()"},
  {"do": "eval", "expr": "(async()=>{const w=ms=>new Promise(r=>setTimeout(r,ms));for(let i=0;i<50&&!document.querySelector('#kid');i++)await w(100);document.querySelector('#kid').click();await w(1500);return 'kid'})()"},
- {"do": "shot", "path": "D:\\claude測試資料\\lun-seamuseum\\2026-10-22\\14-kid-guess.png"},
+ {"do": "shot", "path": "D:\\claude測試資料\\lun-oceanmuseum\\2026-10-22\\14-kid-guess.png"},
  {"do": "eval", "expr": "(async()=>{localStorage.setItem('sea-level','e');return 'e'})()"}
 ]

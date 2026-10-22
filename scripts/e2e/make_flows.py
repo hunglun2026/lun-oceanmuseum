@@ -7,7 +7,7 @@ import sys
 from pathlib import Path
 
 B = sys.argv[1] if len(sys.argv) > 1 else "http://127.0.0.1:8814"
-S = sys.argv[2] if len(sys.argv) > 2 else r"D:\claude測試資料\lun-seamuseum\2026-10-22"
+S = sys.argv[2] if len(sys.argv) > 2 else r"D:\claude測試資料\lun-oceanmuseum\2026-10-22"
 W = ("const w=ms=>new Promise(r=>setTimeout(r,ms));const wf=async q=>{for(let i=0;i<100&&!document.querySelector(q);i++)await w(100);return document.querySelector(q)};"
      "const rd=async()=>{for(let i=0;i<100&&!document.documentElement.dataset.ready;i++)await w(100)};")
 # 跑完一輪出題引擎：每題按第一個還能按的選項，再按「下一題」，直到出現成績

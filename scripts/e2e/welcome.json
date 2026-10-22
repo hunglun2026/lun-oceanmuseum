@@ -1,9 +1,9 @@
 [
  {"do": "goto", "url": "http://127.0.0.1:8814/"},
  {"do": "eval", "expr": "(async()=>{const w=ms=>new Promise(r=>setTimeout(r,ms));for(let i=0;i<50&&!document.documentElement.dataset.ready;i++)await w(100);const t=document.getElementById('tour');const top=t.getBoundingClientRect().top+scrollY;scrollTo(0,top);await w(1500);const p=[...document.querySelectorAll('.w-panel')];return '面板='+p.length+' 圓點='+document.querySelectorAll('.w-dots button').length+' 第1張透明度='+p[0].style.opacity+' 圖已載='+document.querySelectorAll('.w-panel img[src]').length})()"},
- {"do": "shot", "path": "D:\\claude測試資料\\lun-seamuseum\\2026-10-22\\15-welcome-1.png"},
+ {"do": "shot", "path": "D:\\claude測試資料\\lun-oceanmuseum\\2026-10-22\\15-welcome-1.png"},
  {"do": "eval", "expr": "(async()=>{const w=ms=>new Promise(r=>setTimeout(r,ms));const t=document.getElementById('tour');const top=t.getBoundingClientRect().top+scrollY;const span=t.offsetHeight-innerHeight;scrollTo(0,top+span*(2.5/7));await w(1500);const p=[...document.querySelectorAll('.w-panel')];return '捲到 2.5 張：透明度='+p.map(x=>(+x.style.opacity).toFixed(2)).join(',')+' 圖已載='+document.querySelectorAll('.w-panel img[src]').length})()"},
- {"do": "shot", "path": "D:\\claude測試資料\\lun-seamuseum\\2026-10-22\\16-welcome-mid.png"},
+ {"do": "shot", "path": "D:\\claude測試資料\\lun-oceanmuseum\\2026-10-22\\16-welcome-mid.png"},
  {"do": "eval", "expr": "(async()=>{const w=ms=>new Promise(r=>setTimeout(r,ms));const t=document.getElementById('tour');const top=t.getBoundingClientRect().top+scrollY;const span=t.offsetHeight-innerHeight;scrollTo(0,top+span);await w(1500);const p=[...document.querySelectorAll('.w-panel')];return '捲到最後：最後一張透明度='+p[7].style.opacity+' 標題='+p[7].querySelector('h2').textContent})()"},
- {"do": "shot", "path": "D:\\claude測試資料\\lun-seamuseum\\2026-10-22\\17-welcome-last.png"}
+ {"do": "shot", "path": "D:\\claude測試資料\\lun-oceanmuseum\\2026-10-22\\17-welcome-last.png"}
 ]

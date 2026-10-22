@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# 把 school/lun-seamuseum 的「公開部分」同步到 GitHub hunglun2026/lun-seamuseum（白名單複製、掃機密、推 main），
+# 把 school/lun-oceanmuseum 的「公開部分」同步到 GitHub hunglun2026/lun-oceanmuseum（白名單複製、掃機密、推 main），
 # 由 GitHub Actions 部署。照抄 lun-museum 的做法；內部檔（進度.md、學習筆記.md、.prod.secrets、data/raw、data/photos）不公開。
 # 用法：bash scripts/publish-public.sh "commit 訊息"
 # 憑證：hunglun2026-workflow 這把 PAT 有 workflow 權限，.github/ 也一起推（2026-10-21 已驗證）。
@@ -12,7 +12,7 @@ PAT="$(grep '^hunglun2026-workflow=' /d/ClaudeOnly/steve0802/gh-tokens.txt | cut
 B64="$(printf 'x-access-token:%s' "$PAT" | base64 -w0)"
 GIT_AUTH=(-c "http.https://github.com/.extraheader=AUTHORIZATION: basic $B64")
 
-git "${GIT_AUTH[@]}" clone -q https://github.com/hunglun2026/lun-seamuseum.git "$STG/repo"
+git "${GIT_AUTH[@]}" clone -q https://github.com/hunglun2026/lun-oceanmuseum.git "$STG/repo"
 cd "$STG/repo"
 git ls-files | xargs -r rm -f
 cd "$SRC"
@@ -28,10 +28,10 @@ cp tools/*.py tools/*.sh "$STG/repo/tools/"
 find "$STG/repo" -name __pycache__ -prune -exec rm -rf {} +
 
 # 掃機密：本專案密鑰、Cloudflare／GitHub token
-python -X utf8 - "$STG/repo" <<'PYEOF'
+python -X utf8 - "$STG/repo" "$SRC" <<'PYEOF'
 import json,os,re,sys
 root=sys.argv[1]
-sec=json.load(open(r'D:\ClaudeOnly\school\lun-seamuseum\.prod.secrets',encoding='utf-8'))
+sec=json.load(open(os.path.join(sys.argv[2],'.prod.secrets'),encoding='utf-8'))  # 從專案資料夾找，資料夾改名也不用改
 vals=[sec['ADMIN_TOKEN'],sec['NTFY_TOPIC']]
 for f in ('cf-tokens.txt','gh-tokens.txt'):
     for l in open(os.path.join(r'D:\ClaudeOnly\steve0802',f),encoding='utf-8'):

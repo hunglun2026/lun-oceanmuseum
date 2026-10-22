@@ -1,4 +1,5 @@
-"""找照片：學名 → Wikidata 代表圖（P18）→ 沒有就搜維基共享資源 → 只收自由授權 → 下載原圖到 D:\lun-seamuseum-cache\photosaw\（不放專案）。
+"""找照片：學名 → Wikidata 代表圖（P18）→ 沒有就搜維基共享資源 → 只收自由授權 → 下載原圖到 D:\lun-oceanmuseum-cache\photos
+aw\（不放專案）。
 
 結果寫 data/photos.json（每種：檔名、作者、授權、原始網址、來源方式）。人工判斷寫 data/photos_fix.json：
 {id: "File:xxx.jpg"（指定別張）| null（不用照片）| {"exclude": [不要的檔名]}（找下一張）}，重跑會照它。
@@ -13,7 +14,7 @@ import urllib.parse
 
 from common import CACHE, ROOT, get, load_json, save_json
 
-UA = {"User-Agent": "lun-seamuseum/0.1 (education site; hunglun2026@gmail.com)"}
+UA = {"User-Agent": "lun-oceanmuseum/0.1 (education site; hunglun2026@gmail.com)"}
 OK_LICENSE = re.compile(r"^(cc0|public domain|pd|cc by(-sa)? [1-4]\.0)", re.I)
 RAWDIR = CACHE / "photos" / "raw"
 # 檔名看得出不是生物照片的（分布圖、論文附圖、骨骼、X 光、鱗片顯微）直接跳過

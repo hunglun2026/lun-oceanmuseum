@@ -9,8 +9,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 RAW = ROOT / "data" / "raw"
 # 照片原圖約 40 MB，可重新下載，不放 ClaudeOnly（避免進 git 備份）；AI 插圖原檔也放這裡
-CACHE = Path(os.environ.get("LUN_SEA_CACHE", r"D:\lun-seamuseum-cache"))
-UA = {"User-Agent": "Mozilla/5.0 lun-seamuseum"}
+CACHE = Path(os.environ.get("LUN_SEA_CACHE", r"D:\lun-oceanmuseum-cache"))
+UA = {"User-Agent": "Mozilla/5.0 lun-oceanmuseum"}
 
 
 def get(url: str, timeout=120, headers=None) -> bytes:
