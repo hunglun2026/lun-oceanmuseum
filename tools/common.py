@@ -17,10 +17,13 @@ def get(url: str, timeout=120, headers=None) -> bytes:
     # 中文路徑先編碼；網路錯誤重試三次，最後一次照樣丟出
     parts = urllib.parse.urlsplit(url)
     url = urllib.parse.urlunsplit(parts._replace(path=urllib.parse.quote(urllib.parse.unquote(parts.path))))
+    if not url.startswith("https://"):  # urllib 也吃 file://，只允許 https
+        raise ValueError(f"只允許 https 網址：{url}")
     err = None
     for wait in (0, 5, 20, 60):
         time.sleep(wait)
         try:
+            # nosemgrep: python.lang.security.audit.dynamic-urllib-use-detected.dynamic-urllib-use-detected -- 上面已限制只能 https，網址只來自本機建置腳本
             with urllib.request.urlopen(urllib.request.Request(url, headers=headers or UA), timeout=timeout) as r:
                 return r.read()
         except Exception as e:  # noqa: BLE001

@@ -1,6 +1,6 @@
 /* 共用出題引擎：分類闖關、誰住哪裡都用它。
    Quiz.run(root, { key, title, rounds, onAgain, timed })
-   rounds[i] = { animal, prompt(html), options:[{id,label,sub,pic}], answer(id), explain(html), say, noPic }
+   rounds[i] = { animal, prompt(html), options:[{id,label,sub,pic}], answer(id), explain(html), say, noPic } ai-feel-ignore: 欄位名稱不是瀏覽器對話框
    pic：選項畫成照片（幼兒園「聽名字找照片」）；say：幼兒園自動唸出的題目文字；noPic：題目上方不放照片
    timed：秒數。有給就是限時模式（答完自動下一題、連續答對有加分），rounds 要準備多一點。
    Quiz.review(items)：完成畫面的「答錯的生物」清單，猜謎、保育對決也共用。items = [{ animal, answer }] */
@@ -20,7 +20,7 @@
       // 特展閱讀題沒有生物：只列題目和正確答案
       if (!it.animal) { list.appendChild(el('<div class="rv"><span><b>' + esc(it.round.text || "") + "</b><br><small>正確答案：" + esc(it.answer) + "</small></span></div>")); return; }
       const row = el('<a class="rv" href="/animals#' + encodeURIComponent(it.animal.id) + '" target="_blank" rel="noopener">' +
-        '<span class="rv-pic"></span><span><b>' + esc(it.animal.name) + "</b><br><small>正確答案：" + esc(it.answer) + "</small><br><small>看介紹 ➜</small></span></a>");
+        '<span class="rv-pic"></span><span><b>' + esc(it.animal.name) + "</b><br><small>正確答案：" + esc(it.answer) + "</small><br><small>看介紹 →</small></span></a>");
       row.querySelector(".rv-pic").replaceWith(Sea.photo(it.animal));
       list.appendChild(row);
     });
@@ -41,10 +41,10 @@
       const r = rounds[i];
       root.replaceChildren();
       const head = cfg.timed
-        ? '<p class="timed"><span class="clock" id="clock">⏱️ ' + left + ' 秒</span>　⭐ ' + score + " 分</p>"
-        : '<div class="bar"><i style="width:' + (i / rounds.length) * 100 + '%"></i></div><p>第 ' + (i + 1) + " / " + rounds.length + " 題　⭐ " + score + " 分</p>";
+        ? '<p class="timed"><span class="clock" id="clock">' + Sea.glyph("clock") + ' ' + left + ' 秒</span>　' + score + " 分</p>"
+        : '<div class="bar"><i style="width:' + (i / rounds.length) * 100 + '%"></i></div><p>第 ' + (i + 1) + " / " + rounds.length + " 題　" + score + " 分</p>";
       const stage = el(
-        '<div class="stage">' + head + (combo >= 2 ? '<p class="combo">🔥 連續答對 ' + combo + " 題！</p>" : "") +
+        '<div class="stage">' + head + (combo >= 2 ? '<p class="combo">' + Sea.glyph("flame") + ' 連續答對 ' + combo + " 題！</p>" : "") +
         '<div id="pic"></div><h2 style="margin:.4em 0">' + r.prompt + '</h2><div class="opts" id="opts"></div>' +
         '<div class="feedback" id="fb" role="status" aria-live="polite"></div><div id="nx"></div></div>'
       );
@@ -81,13 +81,13 @@
       fb.className = "feedback " + (ok ? "ok" : "no");
       const last = i === rounds.length - 1;
       if (cfg.timed) {
-        fb.innerHTML = ok ? "答對了！🎉" + (combo >= 3 ? " 連續加分 +5" : "") : "答案是：" + esc(r.options.find((o) => o.id === r.answer).label);
+        fb.innerHTML = ok ? "答對了！" + (combo >= 3 ? " 連續加分 +5" : "") : "答案是：" + esc(r.options.find((o) => o.id === r.answer).label);
         setTimeout(() => { if (over) return; i++; last ? finish() : show(); }, ok ? 600 : 1300);
         return;
       }
-      fb.innerHTML = (ok ? "答對了！🎉 " : "差一點點，再記一下～ ") + r.explain;
+      fb.innerHTML = (ok ? "答對了！ " : "差一點點，再記一下～ ") + r.explain;
       if (Sea.level() === "k") Sea.say(ok ? "答對了！" : "答案是" + r.options.find((o) => o.id === r.answer).label);
-      const next = el('<button class="btn primary big">' + (last ? "看成績 🏆" : "下一題 ➜") + "</button>");
+      const next = el('<button class="btn primary big">' + (last ? "看成績" : "下一題 →") + "</button>");
       next.onclick = () => { i++; last ? finish() : show(); };
       stage.querySelector("#nx").appendChild(next);
       next.focus();
@@ -103,11 +103,11 @@
       if (stars === 3) Fx.confetti();
       const box = el(
         '<div class="stage"><h2>' + esc(cfg.title) + (cfg.timed && left <= 0 ? " 時間到！" : " 完成！") + "</h2>" +
-        '<div class="stars" aria-label="' + stars + ' 顆星">' + "⭐".repeat(stars) + "☆".repeat(3 - stars) + "</div>" +
+        '<div class="stars">' + Sea.stars(stars) + "</div>" +
         '<div class="score">' + score + (total ? " / " + total : " 分") + "</div>" +
         (cfg.timed ? "<p>答對 " + right + " 題，答錯 " + wrongs.length + " 題。</p>" : "") +
         "<p>" + (stars === 3 ? "太厲害了，你是海洋小博士！" : stars === 2 ? "很不錯喔，再玩一次可以拿到三顆星！" : "沒關係，多看幾次就記住了。") + "</p>" +
-        (prev && score > prev ? "<p>🎊 打破自己的紀錄！（上次 " + prev + " 分）</p>" : prev ? "<p>你的最佳紀錄：" + Math.max(prev, score) + " 分</p>" : "") +
+        (prev && score > prev ? "<p>打破自己的紀錄！（上次 " + prev + " 分）</p>" : prev ? "<p>你的最佳紀錄：" + Math.max(prev, score) + " 分</p>" : "") +
         '<div id="rv"></div><p><button class="btn primary big" id="again">再玩一次</button> ' +
         (wrongs.length ? '<button class="btn big" id="redo">只練錯的（' + wrongs.length + " 題）</button> " : "") +
         '<a class="btn big" href="/passport">看我的護照</a></p></div>'
@@ -124,7 +124,7 @@
       timer = setInterval(() => {
         left--;
         const c = document.getElementById("clock");
-        if (c) { c.textContent = "⏱️ " + left + " 秒"; c.classList.toggle("hurry", left <= 10); }
+        if (c) { c.innerHTML = Sea.glyph("clock") + " " + left + " 秒"; c.classList.toggle("hurry", left <= 10); }
         if (left <= 5 && left > 0) Fx.tick();
         if (left <= 0) { Fx.ding(); finish(); }
       }, 1000);

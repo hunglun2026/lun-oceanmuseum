@@ -22,20 +22,20 @@
     const k = nChoices();
     if (kind === "habitat") {
       const others = shuffle(Sea.HABS.filter((h) => h.id !== a.h)).slice(0, k - 1);
-      const ch = shuffle([a.habInfo].concat(others)).map((h) => h.emoji + h.name);
-      return { q: a.name + " 住在哪裡？", choices: ch, answer: a.habInfo.emoji + a.habInfo.name };
+      const ch = shuffle([a.habInfo].concat(others)).map((h) => h.name);
+      return { q: a.name + " 住在哪裡？", choices: ch, answer: a.habInfo.name };
     }
     if (kind === "hall") {
       return { q: "到海生館要去哪一館看 " + a.name + " 住的水域？", choices: Object.values(HALLS), answer: HALLS[a.hall] };
     }
     if (kind === "group") {
       const others = shuffle(Sea.CLASSIFY_GROUPS.filter((g) => g !== a.g)).slice(0, k - 1).map((id) => Sea.GROUP[id]);
-      const ch = shuffle([a.groupInfo].concat(others)).map((g) => g.emoji + g.name);
-      return { q: a.name + " 是哪一類？", choices: ch, answer: a.groupInfo.emoji + a.groupInfo.name };
+      const ch = shuffle([a.groupInfo].concat(others)).map((g) => g.name);
+      return { q: a.name + " 是哪一類？", choices: ch, answer: a.groupInfo.name };
     }
     if (kind === "diet") {
-      const ch = Object.values(Sea.DIETS).map((d) => d.emoji + d.name);
-      return { q: a.name + " 吃什麼？", choices: ch, answer: a.dietInfo.emoji + a.dietInfo.name };
+      const ch = Object.values(Sea.DIETS).map((d) => d.name);
+      return { q: a.name + " 吃什麼？", choices: ch, answer: a.dietInfo.name };
     }
     // 干擾選項：主題內同類 → 全部同類 → 主題內其他 → 全部其他。同類優先，不然一看類別就知道答案
     const ok = (x) => x.id !== a.id;

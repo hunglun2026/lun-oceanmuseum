@@ -1,6 +1,7 @@
 /* 頁首（導覽列＋難度切換）、頁尾（資料來源與授權）與頁面啟動器。每頁 <body data-page="..."> 決定導覽列亮哪一個。 */
 (function () {
   "use strict";
+  const APP_VERSION = Sea.APP_VERSION; // 版本號的單一寫入處在 icons.js
   // [頁面代號, 名稱, 網址, 幼兒園也顯示嗎]
   const NAV = [
     ["animals", "海洋小百科", "/animals", true],
@@ -21,9 +22,17 @@
   wrap.className = "wrap";
   const main = document.querySelector("main");
   main.before(wrap);
+  main.id = "main";
+  const skip = document.createElement("a");
+  skip.className = "skip";
+  skip.href = "#main";
+  skip.textContent = "跳到主要內容";
+  document.body.prepend(skip); // 鍵盤使用者按 Tab 第一下就能跳過導覽
   const lv = Sea.level();
   wrap.innerHTML =
-    '<header class="top"><a class="logo" href="/">🐋 海洋探險家</a><nav aria-label="主選單">' +
+    '<header class="top"><a class="logo" href="/"><img class="logo-mark" src="/favicon.svg" alt="" width="32" height="32">海洋探險家</a>' +
+    '<a class="m-only m-teacher" href="/teacher" data-nokid>老師專區</a><button class="m-only m-more" type="button" data-sheet="menu" aria-haspopup="dialog">' + Sea.glyph("menu") + ' 選單</button>' +
+    '<nav aria-label="主選單">' +
     NAV.map((n) => '<a href="' + n[2] + '"' + (n[0] === page ? ' aria-current="page"' : "") + (n[3] ? "" : ' data-nokid') + ">" + n[1] + "</a>").join("") +
     '</nav><label class="lvl">程度<select id="lvl" aria-label="學習程度">' +
     Object.entries(Sea.LEVELS).map(([k, v]) => '<option value="' + k + '"' + (k === lv ? " selected" : "") + ">" + v.name + "</option>").join("") +
@@ -37,6 +46,63 @@
   wrap.querySelector("#lvl").onchange = (e) => Sea.setLevel(e.target.value);
   document.addEventListener("sea-level", (e) => applyLevel(e.detail));
 
+  // ---- 手機：底部固定 4 格＋點開的面板（桌機用上面的導覽列，這組用 CSS 藏起來）----
+  // 頂部 12 項在手機上會排成 4 排，把內容推出第一屏；改成底部單手按得到的 4 格，其餘收進「選單」
+  const GAMES = ["classify", "habitat", "guess", "memory", "conserve"];
+  const navLinks = (ids) => NAV.filter((n) => !ids || ids.includes(n[0])).map((n) =>
+    '<a href="' + n[2] + '"' + (n[0] === page ? ' aria-current="page"' : "") + (n[3] ? "" : " data-nokid") + ">" + n[1] + "</a>").join("");
+  const SHEETS = {
+    games: ["玩遊戲", navLinks(GAMES)],
+    menu: ["全部功能", '<a href="/">首頁</a>' + navLinks(NAV.map((n) => n[0]).filter((k) => !GAMES.includes(k)))  + navLinks(GAMES)],
+  };
+  const tabs = document.createElement("nav");
+  tabs.className = "m-tabs";
+  tabs.setAttribute("aria-label", "快速選單");
+  const cur = (ok, v) => (ok ? ' aria-current="' + v + '"' : "");
+  // 幼兒園（4 到 6 歲）看不懂「按下去還有一層選單」，底欄全部直達、不開面板
+  function renderTabs() {
+    tabs.innerHTML = Sea.level() === "k"
+      ? '<a href="/animals"' + cur(page === "animals", "page") + '><span aria-hidden="true">' + Sea.ico("t-animals", 30) + '</span>百科</a>' +
+        '<a href="/guess"' + cur(page === "guess", "page") + '><span aria-hidden="true">' + Sea.ico("t-guess", 30) + '</span>找找看</a>' +
+        '<a href="/memory"' + cur(page === "memory", "page") + '><span aria-hidden="true">' + Sea.ico("t-memory", 30) + '</span>翻牌</a>' +
+        '<a href="/passport"' + cur(page === "passport", "page") + '><span aria-hidden="true">' + Sea.ico("t-passport", 30) + '</span>護照</a>'
+      : '<a href="/animals"' + cur(page === "animals", "page") + '><span aria-hidden="true">' + Sea.ico("t-animals", 30) + '</span>百科</a>' +
+        '<button type="button" data-sheet="games"' + cur(GAMES.includes(page), "true") + '><span aria-hidden="true">' + Sea.ico("t-games", 30) + '</span>遊戲</button>' +
+        '<a href="/halls"' + cur(page === "halls", "page") + '><span aria-hidden="true">' + Sea.ico("t-halls", 30) + '</span>展館</a>' +
+        '<a href="/passport"' + cur(page === "passport", "page") + '><span aria-hidden="true">' + Sea.ico("t-passport", 30) + '</span>護照</a>';
+  }
+  renderTabs();
+  document.addEventListener("sea-level", renderTabs);
+  document.body.appendChild(tabs);
+  let opener = null;
+  // 面板接上瀏覽器歷史：Android 返回鍵／手勢先關面板，不會直接退出網站
+  function closeSheet(fromPop) {
+    const o = document.querySelector(".m-sheet");
+    if (!o) return;
+    o.remove();
+    if (fromPop !== true && history.state && history.state.seaSheet) history.back();
+    if (opener) opener.focus();
+  }
+  function openSheet(name, from) {
+    closeSheet();
+    opener = from;
+    const [title, links] = SHEETS[name];
+    const o = document.createElement("div");
+    o.className = "m-sheet";
+    o.innerHTML = '<div class="m-sheet-bg"></div><div class="m-sheet-body" role="dialog" aria-modal="true" aria-label="' + title + '"><h2>' + title + '</h2><div class="m-sheet-grid">' + links + '</div><button class="btn m-sheet-close" type="button">關閉</button></div>';
+    o.querySelector(".m-sheet-bg").onclick = () => closeSheet();
+    o.querySelector(".m-sheet-close").onclick = () => closeSheet();
+    document.body.appendChild(o);
+    history.pushState({ seaSheet: 1 }, "");
+    o.querySelector(".m-sheet-close").focus();
+  }
+  document.addEventListener("click", (e) => {
+    const b = e.target.closest("[data-sheet]");
+    if (b) openSheet(b.dataset.sheet, b);
+  });
+  addEventListener("popstate", () => closeSheet(true));
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeSheet(); });
+
   const foot = document.createElement("footer");
   foot.className = "foot";
   foot.innerHTML =
@@ -48,12 +114,13 @@
     '學名對照：<a href="https://taicol.tw/" target="_blank" rel="noopener">臺灣物種名錄 TaiCOL</a>。' +
     "鯨豚與海龜介紹改寫自中文維基百科（CC BY-SA 4.0）。照片為維基共享資源的自由授權照片，作者與授權標在每種生物的介紹頁。</p>" +
     '<p id="data-stamp">資料載入中…</p>' +
-    "<p>本站非國立海洋生物博物館製作。鴻綸科技 製作；本站不蒐集任何個人資料，學習進度只存在這台裝置的瀏覽器裡。</p>";
+    "<p>本站非國立海洋生物博物館製作。鴻綸科技 製作；本站不蒐集任何個人資料，學習進度只存在這台裝置的瀏覽器裡。</p>" +
+    '<p class="ver">版本 v' + APP_VERSION + "</p>";
   wrap.appendChild(foot);
 
   // Sea.boot(fn)：載入資料後呼叫 fn(data)，處理載入中與失敗畫面
   window.Sea.boot = async function (fn) {
-    main.insertAdjacentHTML("beforeend", '<div class="loading" id="boot">海洋生物正在游過來…🐠</div>');
+    main.insertAdjacentHTML("beforeend", '<div class="loading" id="boot">海洋生物正在游過來…</div>');
     try {
       const data = await Sea.load();
       document.getElementById("boot").remove();
@@ -68,7 +135,7 @@
     } catch (e) {
       console.error(e);
       const b = document.getElementById("boot");
-      if (b) { b.className = "err"; b.innerHTML = '資料載入失敗了。請檢查網路後重新整理。<br><button class="btn" onclick="location.reload()">重新整理</button>'; }
+      if (b) { b.className = "err"; b.innerHTML = '資料載入失敗了。請檢查網路後重新整理。<br><button class="btn" type="button" id="reload">重新整理</button>'; b.querySelector("#reload").onclick = () => location.reload(); }
     }
   };
 })();

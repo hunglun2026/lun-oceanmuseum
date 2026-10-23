@@ -4,14 +4,14 @@ Sea.boot(function (data) {
   const all = data.species;
   const list = document.getElementById("ladder-list");
   const chips = (arr) => "<div class='chips'>" + arr.map((a) => '<a class="chip" style="text-decoration:none;color:inherit" href="/animals#' +
-    encodeURIComponent(a.id) + '">' + a.groupInfo.emoji + " " + esc(a.name) + "</a>").join("") + "</div>";
+    encodeURIComponent(a.id) + '">' + Sea.ico(a.groupInfo.ico, 24) + esc(a.name) + "</a>").join("") + "</div>";
 
   // ---- 1. 臺灣保育等級 ----
   const TW = [["I", "一級：瀕臨絕種"], ["II", "二級：珍貴稀有"], ["III", "三級：其他應予保育"]];
   TW.forEach(([code, text]) => {
     const arr = all.filter((a) => a.prot === code);
     if (!arr.length) return;
-    const b = el('<button class="rung" style="background:' + Sea.PROT[code].color + '">' + esc(text) + "<span>" + arr.length + " 種</span></button>");
+    const b = el('<button class="rung" style="' + Sea.paint(Sea.PROT[code].color) + '">' + esc(text) + "<span>" + arr.length + " 種</span></button>");
     b.onclick = () => { list.hidden = false; list.innerHTML = "<h3 style='margin-top:0'>臺灣" + esc(text) + "（" + arr.length + " 種）</h3>" + chips(arr); };
     document.getElementById("ladder-tw").appendChild(b);
   });
@@ -20,7 +20,7 @@ Sea.boot(function (data) {
   IU.forEach(([code, text]) => {
     const c = Sea.IUCN[code], arr = all.filter((a) => a.iucn === code);
     if (!arr.length) return;
-    const b = el('<button class="rung" style="background:' + c.color + '">' + esc(c.name) + "（" + code + "）：" + esc(text) + "<span>" + arr.length + " 種</span></button>");
+    const b = el('<button class="rung" style="' + Sea.paint(c.color) + '">' + esc(c.name) + "（" + code + "）：" + esc(text) + "<span>" + arr.length + " 種</span></button>");
     b.onclick = () => { list.hidden = false; list.innerHTML = "<h3 style='margin-top:0'>" + esc(c.name) + "（" + arr.length + " 種）</h3>" + chips(arr); };
     document.getElementById("ladder").appendChild(b);
   });
@@ -33,8 +33,8 @@ Sea.boot(function (data) {
     const a = shuffle(risky)[0];
     why.replaceChildren();
     why.appendChild(Sea.photo(a));
-    const badge = a.protInfo ? ' <span class="badge" style="background:' + a.protInfo.color + '">' + esc(a.protInfo.name) + "</span>"
-      : a.iucnInfo ? ' <span class="badge" style="background:' + a.iucnInfo.color + '">' + esc(a.iucnInfo.name) + "</span>" : "";
+    const badge = a.protInfo ? ' <span class="badge" style="' + Sea.paint(a.protInfo.color) + '">' + esc(a.protInfo.name) + "</span>"
+      : a.iucnInfo ? ' <span class="badge" style="' + Sea.paint(a.iucnInfo.color) + '">' + esc(a.iucnInfo.name) + "</span>" : "";
     why.appendChild(el("<div><h3>" + esc(a.name) + badge + '</h3><div class="clue" style="max-width:640px">' +
       esc(Sea.level() === "k" ? a.k : a.e) + "</div></div>"));
     const more = el('<p><button class="btn primary">換一種</button> <a class="btn" href="/animals#' + encodeURIComponent(a.id) + '">看完整介紹</a></p>');
@@ -53,8 +53,8 @@ Sea.boot(function (data) {
       if (i >= N) return end();
       let a, b;
       do { a = shuffle(known)[0]; b = shuffle(known)[0]; } while (a.iucnInfo.rank === b.iucnInfo.rank);
-      duel.replaceChildren(el("<div><p>第 " + (i + 1) + " / " + N + " 題　⭐ " + score + "</p>" +
-        (combo >= 2 ? '<p class="combo">🔥 連續答對 ' + combo + " 題！</p>" : "") + '<h3 style="margin:.2em 0">國際紅色名錄裡，哪一種比較危險？</h3></div>'));
+      duel.replaceChildren(el("<div><p>第 " + (i + 1) + " / " + N + " 題　" + score + " 分</p>" +
+        (combo >= 2 ? '<p class="combo">' + Sea.glyph("flame") + ' 連續答對 ' + combo + " 題！</p>" : "") + '<h3 style="margin:.2em 0">國際紅色名錄裡，哪一種比較危險？</h3></div>'));
       const row = el('<div class="opts"></div>');
       [a, b].forEach((x) => {
         const o = el('<button class="opt"><span class="ph-slot"></span>' + esc(x.name) + "</button>");
@@ -68,13 +68,14 @@ Sea.boot(function (data) {
           row.querySelectorAll(".opt").forEach((btn, k) => {
             const y = k === 0 ? a : b;
             btn.disabled = true;
+            // nosemgrep: typescript.react.security.audit.react-unsanitized-method.react-unsanitized-method -- 文字已經過 esc() 跳脫，資料是本站自己的 JSON
             btn.insertAdjacentHTML("beforeend", "<small>" + esc(y.iucnInfo.name) + "</small>");
             if (y === hi) btn.classList.add("right");
           });
           if (!ok) o.classList.add("wrong");
-          const nx = el('<p><button class="btn primary big">' + (i === N - 1 ? "看成績" : "下一題 ➜") + "</button></p>");
+          const nx = el('<p><button class="btn primary big">' + (i === N - 1 ? "看成績" : "下一題 →") + "</button></p>");
           nx.querySelector("button").onclick = () => { i++; next(); };
-          duel.appendChild(el('<div class="feedback ' + (ok ? "ok" : "no") + '">' + (ok ? "答對了！🎉" : "再想想，看看上面的等級～") + "</div>"));
+          duel.appendChild(el('<div class="feedback ' + (ok ? "ok" : "no") + '">' + (ok ? "答對了！" : "再想想，看看上面的等級～") + "</div>"));
           duel.appendChild(nx);
         };
         row.appendChild(o);
@@ -85,7 +86,7 @@ Sea.boot(function (data) {
       const stars = score >= 50 ? 3 : score >= 30 ? 2 : score > 0 ? 1 : 0;
       Progress.stars("conserve", stars);
       if (stars === 3) Fx.confetti();
-      duel.replaceChildren(el('<div><h3>完成！</h3><div class="stars" aria-label="' + stars + ' 顆星">' + "⭐".repeat(stars) + "☆".repeat(3 - stars) + "</div>" +
+      duel.replaceChildren(el('<div><h3>完成！</h3><div class="stars">' + Sea.stars(stars) + "</div>" +
         '<div class="score">' + score + " / " + N * 10 + '</div><div id="rv"></div><p><button class="btn primary big">再玩一次</button></p></div>'));
       duel.querySelector("#rv").appendChild(Quiz.review(wrongs));
       duel.querySelector("button").onclick = playDuel;

@@ -34,7 +34,7 @@ Sea.boot(function (data) {
     root.replaceChildren(head, board);
 
     cards.forEach((c) => {
-      const b = el('<button class="mcard" aria-label="蓋著的牌"><span class="back" aria-hidden="true">🫧</span><span class="front"></span></button>');
+      const b = el('<button class="mcard" aria-label="蓋著的牌"><span class="back" aria-hidden="true">' + Sea.glyph("bubble") + '</span><span class="front"></span></button>');
       const front = b.querySelector(".front");
       if (c.kind === "pic") {
         const p = Sea.photo(c.a);
@@ -82,11 +82,11 @@ Sea.boot(function (data) {
       Progress.stars("memory-" + mode + (kid ? "-kid" : ""), stars);
       if (stars === 3) Fx.confetti();
       const box = el(
-        '<div class="stage"><h2>全部配對完成！</h2><div class="stars" aria-label="' + stars + ' 顆星">' + "⭐".repeat(stars) + "☆".repeat(3 - stars) + "</div>" +
+        '<div class="stage"><h2>全部配對完成！</h2><div class="stars">' + Sea.stars(stars) + "</div>" +
         "<p>翻了 <b>" + flips + "</b> 次，花了 <b>" + sec + "</b> 秒。" +
-        (prev && flips < prev ? "🎊 打破紀錄！（上次 " + prev + " 次）" : prev ? "最佳紀錄：" + Math.min(prev, flips) + " 次" : "") + "</p>" +
+        (prev && flips < prev ? "打破紀錄！（上次 " + prev + " 次）" : prev ? "最佳紀錄：" + Math.min(prev, flips) + " 次" : "") + "</p>" +
         '<h3>這次認識的海洋生物</h3><div class="chips" style="justify-content:center">' +
-        picked.map((a) => '<a class="chip" style="text-decoration:none;color:inherit" href="/animals#' + encodeURIComponent(a.id) + '" target="_blank" rel="noopener">' + a.groupInfo.emoji + " " + esc(a.name) + "</a>").join("") +
+        picked.map((a) => '<a class="chip" style="text-decoration:none;color:inherit" href="/animals#' + encodeURIComponent(a.id) + '" target="_blank" rel="noopener">' + Sea.ico(a.groupInfo.ico, 24) + esc(a.name) + "</a>").join("") +
         '</div><p><button class="btn primary big" id="again">再玩一次</button> <a class="btn big" href="/passport">看我的護照</a></p></div>'
       );
       root.replaceChildren(box);

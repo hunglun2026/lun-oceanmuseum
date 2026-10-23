@@ -7,18 +7,18 @@
 
   // ---- 類群（分類闖關）：鍵要跟 tools/ai_check.py 的 GROUPS 一致 ----
   const GROUPS = [
-    { id: "shark", name: "鯊魚", emoji: "🦈", color: "#4a6fa5", hint: "軟骨魚，身體像紡錘，背上有三角形的背鰭" },
-    { id: "ray", name: "魟與鰩", emoji: "🪁", color: "#7a6aa8", hint: "身體扁扁的像一個大盤子，在海底或水中滑行" },
-    { id: "eel", name: "鰻與鯙", emoji: "🐍", color: "#8a7a3a", hint: "身體又長又細，像一條蛇" },
-    { id: "reef", name: "珊瑚礁魚", emoji: "🐠", color: "#e0743a", hint: "住在珊瑚礁，顏色常常很鮮豔" },
-    { id: "puffer", name: "河魨與箱魨", emoji: "🐡", color: "#c9a227", hint: "有的會脹大，有的全身包著硬殼，很多身體有毒" },
-    { id: "flat", name: "比目魚", emoji: "🥏", color: "#9a7b5c", hint: "身體扁平，兩隻眼睛長在同一邊" },
-    { id: "school", name: "成群洄游的魚", emoji: "🐟", color: "#3a8fb5", hint: "常常一大群一起游，游得又快又遠" },
-    { id: "bottom", name: "海底偽裝高手", emoji: "🪨", color: "#7d6b5d", hint: "趴在海底，顏色跟沙子石頭很像，等獵物經過" },
-    { id: "other", name: "其他魚", emoji: "🐟", color: "#5a8a9a", hint: "其他各式各樣的魚" },
-    { id: "cetacean", name: "鯨豚與儒艮", emoji: "🐋", color: "#2b5d8a", hint: "用肺呼吸、喝媽媽的奶長大的海洋哺乳動物" },
-    { id: "turtle", name: "海龜", emoji: "🐢", color: "#4f8a4b", hint: "有殼、用肺呼吸，要回到沙灘產卵" },
-    { id: "coral", name: "珊瑚", emoji: "🪸", color: "#d1607a", hint: "看起來像石頭或植物，其實是動物" },
+    { id: "shark", name: "鯊魚", ico: "g-shark", color: "#4a6fa5", hint: "軟骨魚，身體像紡錘，背上有三角形的背鰭" },
+    { id: "ray", name: "魟與鰩", ico: "g-ray", color: "#7a6aa8", hint: "身體扁扁的像一個大盤子，在海底或水中滑行" },
+    { id: "eel", name: "鰻與鯙", ico: "g-eel", color: "#8a7a3a", hint: "身體又長又細，像一條蛇" },
+    { id: "reef", name: "珊瑚礁魚", ico: "g-reef", color: "#e0743a", hint: "住在珊瑚礁，顏色常常很鮮豔" },
+    { id: "puffer", name: "河魨與箱魨", ico: "g-puffer", color: "#c9a227", hint: "有的會脹大，有的全身包著硬殼，很多身體有毒" },
+    { id: "flat", name: "比目魚", ico: "g-flat", color: "#9a7b5c", hint: "身體扁平，兩隻眼睛長在同一邊" },
+    { id: "school", name: "成群洄游的魚", ico: "g-school", color: "#3a8fb5", hint: "常常一大群一起游，游得又快又遠" },
+    { id: "bottom", name: "海底偽裝高手", ico: "g-bottom", color: "#7d6b5d", hint: "趴在海底，顏色跟沙子石頭很像，等獵物經過" },
+    { id: "other", name: "其他魚", ico: "g-other", color: "#5a8a9a", hint: "其他各式各樣的魚" },
+    { id: "cetacean", name: "鯨豚與儒艮", ico: "g-cetacean", color: "#2b5d8a", hint: "用肺呼吸、喝媽媽的奶長大的海洋哺乳動物" },
+    { id: "turtle", name: "海龜", ico: "g-turtle", color: "#4f8a4b", hint: "有殼、用肺呼吸，要回到沙灘產卵" },
+    { id: "coral", name: "珊瑚", ico: "g-coral", color: "#d1607a", hint: "看起來像石頭或植物，其實是動物" },
   ];
   const GROUP = Object.fromEntries(GROUPS.map((g) => [g.id, g]));
   // 分類闖關不考「其他魚」（沒有共同特徵）和只有一兩種的類群
@@ -26,19 +26,19 @@
 
   // ---- 棲地（誰住哪片海）：鍵要跟 ai_check.py 的 HABS 一致；hall＝對到海生館哪個展館 ----
   const HABS = [
-    { id: "estuary", name: "河口紅樹林", emoji: "🌿", hall: "taiwan", hint: "河流流進海的地方，海水和淡水混在一起" },
-    { id: "rocky", name: "沿岸岩礁", emoji: "🪨", hall: "taiwan", hint: "海邊的礁石、潮池和石頭縫" },
-    { id: "sandy", name: "沙泥海底", emoji: "🏖️", hall: "taiwan", hint: "海底是沙子或泥巴的地方" },
-    { id: "reef", name: "珊瑚礁", emoji: "🪸", hall: "coral", hint: "溫暖清澈的淺海，珊瑚長成一大片" },
-    { id: "ocean", name: "大洋", emoji: "🌊", hall: "world", hint: "離岸很遠、又寬又深的藍色大海" },
-    { id: "deep", name: "深海", emoji: "🌑", hall: "world", hint: "陽光照不到的深處，又黑又冷" },
+    { id: "estuary", name: "河口紅樹林", ico: "h-estuary", hall: "taiwan", hint: "河流流進海的地方，海水和淡水混在一起" },
+    { id: "rocky", name: "沿岸岩礁", ico: "h-rocky", hall: "taiwan", hint: "海邊的礁石、潮池和石頭縫" },
+    { id: "sandy", name: "沙泥海底", ico: "h-sandy", hall: "taiwan", hint: "海底是沙子或泥巴的地方" },
+    { id: "reef", name: "珊瑚礁", ico: "h-reef", hall: "coral", hint: "溫暖清澈的淺海，珊瑚長成一大片" },
+    { id: "ocean", name: "大洋", ico: "h-ocean", hall: "world", hint: "離岸很遠、又寬又深的藍色大海" },
+    { id: "deep", name: "深海", ico: "h-deep", hall: "world", hint: "陽光照不到的深處，又黑又冷" },
   ];
   const HAB = Object.fromEntries(HABS.map((h) => [h.id, h]));
   const DIETS = {
-    meat: { name: "吃魚蝦蟹等動物", short: "吃肉", emoji: "🍖" },
-    plant: { name: "吃海藻海草", short: "吃海藻", emoji: "🌿" },
-    omni: { name: "什麼都吃", short: "都吃", emoji: "🍽️" },
-    plankton: { name: "吃浮游生物", short: "吃浮游生物", emoji: "🦐" },
+    meat: { name: "吃魚蝦蟹等動物", short: "吃肉" },
+    plant: { name: "吃海藻海草", short: "吃海藻" },
+    omni: { name: "什麼都吃", short: "都吃" },
+    plankton: { name: "吃浮游生物", short: "吃浮游生物" },
   };
   // 保育：臺灣《野生動物保育法》海洋保育類等級（海洋保育署名錄）＋國際 IUCN 紅色名錄
   const PROT = {
@@ -63,6 +63,15 @@
   function level() {
     try { const v = localStorage.getItem(LKEY); if (LEVELS[v]) return v; } catch (e) { /* 無痕模式 */ }
     return "e";
+  }
+  // 有沒有「真的選過」程度：沒選過時 level() 預設國小，但畫面不能把國小顯示成已選（共用平板上會誤導）
+  function levelChosen() {
+    try { return !!LEVELS[localStorage.getItem(LKEY)]; } catch (e) { return false; }
+  }
+  // 換人：清掉程度選擇，回到沒選過的狀態（護照紀錄不動，要清另外到護照頁）
+  function clearLevel() {
+    try { localStorage.removeItem(LKEY); } catch (e) { /* 忽略 */ }
+    document.dispatchEvent(new CustomEvent("sea-level", { detail: level() }));
   }
   function setLevel(v) {
     try { localStorage.setItem(LKEY, v); } catch (e) { /* 忽略 */ }
@@ -103,7 +112,7 @@
     const d = document.createElement("div");
     d.className = "ph " + (cls || "");
     d.style.background = a.groupInfo.color + "22";
-    d.innerHTML = '<span aria-hidden="true">' + a.groupInfo.emoji + "</span>";
+    d.innerHTML = Sea.ico(a.groupInfo.ico, 72);
     d.setAttribute("role", "img");
     d.setAttribute("aria-label", a.name);
     return d;
@@ -160,11 +169,24 @@
     const b = document.createElement("button");
     b.className = "say";
     b.type = "button";
-    b.textContent = "🔈";
+    b.innerHTML = Sea.glyph("speaker");
     b.setAttribute("aria-label", label || "唸給我聽");
     b.onclick = (ev) => { ev.stopPropagation(); say(text); };
     b.hidden = level() !== "k";
     return b;
+  }
+
+  // ---- 色塊上的字：自動挑看得清楚的顏色（WCAG 文字對比 4.5） ----
+  // 保育等級、IUCN 的代表色有些很亮（黃、橙），白字放上去對比不到 4.5。深字夠就用深字，不夠就把底色加深到白字夠清楚
+  function paint(hex) {
+    const rgb = (h) => [1, 3, 5].map((i) => parseInt(h.slice(i, i + 2), 16));
+    const lum = (c) => { const a = c.map((v) => { v /= 255; return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4); }); return 0.2126 * a[0] + 0.7152 * a[1] + 0.0722 * a[2]; };
+    const ratio = (a, b) => (Math.max(a, b) + 0.05) / (Math.min(a, b) + 0.05);
+    const INK = "#1d2f38";
+    let c = rgb(hex);
+    if (ratio(lum(c), lum(rgb(INK))) >= 4.5) return "background:" + hex + ";color:" + INK;
+    for (let i = 0; i < 30 && ratio(lum(c), 1) < 4.5; i++) c = c.map((v) => Math.round(v * 0.94));
+    return "background:rgb(" + c.join(",") + ");color:#fff";
   }
 
   // ---- 小工具 ----
@@ -202,7 +224,7 @@
   }
 
   window.Sea = {
-    DATA_V, GROUPS, GROUP, CLASSIFY_GROUPS, HABS, HAB, DIETS, PROT, IUCN, LEVELS, level, setLevel, intro,
+    DATA_V, GROUPS, GROUP, CLASSIFY_GROUPS, HABS, HAB, DIETS, PROT, IUCN, LEVELS, level, levelChosen, clearLevel, setLevel, paint, intro,
     load, photo, placeholder, creditLine, sourceLine, mask, say, sayBtn, esc, shuffle, pick, el, dialog,
   };
 })();

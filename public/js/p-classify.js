@@ -21,9 +21,9 @@ Sea.boot(function (data) {
       '<div class="panel"><p class="lead" style="margin-top:0">每一題會出現一種海洋生物，請選出牠屬於哪一類。一共 10 題。</p>' +
       '<p><button class="btn ' + (hardFirst ? "" : "primary ") + 'big" data-m="easy">入門（鯊魚、魟與鰩、鯨豚、海龜）</button></p>' +
       '<p><button class="btn ' + (hardFirst ? "primary " : "") + 'big" data-m="hard">挑戰（' + MODES.hard.groups.length + " 類都會出現）</button></p>" +
-      '<p><button class="btn big" data-m="' + (hardFirst ? "hard" : "easy") + '" data-t="1">⏱️ 60 秒挑戰（答越多越好）</button></p>' +
+      '<p><button class="btn big" data-m="' + (hardFirst ? "hard" : "easy") + '" data-t="1">' + Sea.glyph("clock") + ' 60 秒挑戰（答越多越好）</button></p>' +
       "<details><summary>這些類別怎麼分？</summary><ul>" +
-      MODES.hard.groups.map((id) => Sea.GROUP[id]).map((g) => "<li>" + g.emoji + " <b>" + esc(g.name) + "</b>：" + esc(g.hint) + "</li>").join("") +
+      MODES.hard.groups.map((id) => Sea.GROUP[id]).map((g) => "<li>" + Sea.ico(g.ico, 28) + " <b>" + esc(g.name) + "</b>：" + esc(g.hint) + "</li>").join("") +
       "</ul></details></div>"
     ));
     root.querySelectorAll("[data-m]").forEach((b) => (b.onclick = () => play(b.dataset.m, !!b.dataset.t)));
@@ -45,7 +45,7 @@ Sea.boot(function (data) {
       return {
         animal: a,
         prompt: "<b>" + esc(a.name) + "</b> 是哪一類？",
-        options: opts.map((g) => ({ id: g.id, label: g.emoji + " " + g.name })),
+        options: opts.map((g) => ({ id: g.id, label: g.name })),
         answer: a.g,
         explain: esc(a.name) + "是" + esc(a.groupInfo.name) + "：" + esc(a.groupInfo.hint) + "。",
       };

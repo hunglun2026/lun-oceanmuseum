@@ -14,16 +14,14 @@
   python scripts/build-font.py --check   檢查現有資料與網站文字有沒有字不在任何一包裡（有就離場碼 1）
 來源字型沿用 tools/web-design 的快取（~/.cache/web-design/fonts/），不用重新下載 12MB。
 """
-import csv
 import hashlib
-import io
 import re
 import shutil
 import sys
 from pathlib import Path
 
 sys.path.insert(0, r"D:\ClaudeOnly\tools\web-design")
-from webdesign import fonts  # noqa: E402
+from webdesign import fonts
 
 ROOT = Path(__file__).resolve().parent.parent
 FONTS = ROOT / "public" / "fonts"
@@ -124,7 +122,8 @@ def main() -> int:
     faces, total = [], 0
     for i, chars in enumerate(chunks()):
         blob = fonts.subset_woff2("sans", chars)
-        name = f"sea-sans-{i}-{hashlib.sha1(blob).hexdigest()[:8]}.woff2"
+        # nosemgrep: python.lang.security.insecure-hash-algorithms.insecure-hash-algorithm-sha1 -- 只用來給字型檔取不重複的檔名，不是安全用途
+        name = f"sea-sans-{i}-{hashlib.sha1(blob, usedforsecurity=False).hexdigest()[:8]}.woff2"
         (FONTS / name).write_bytes(blob)
         total += len(blob)
         faces.append('@font-face{font-family:"SeaSans";src:url("/fonts/%s") format("woff2");font-weight:400 800;font-display:swap;unicode-range:%s}' % (name, ranges(chars)))

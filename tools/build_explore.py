@@ -14,10 +14,8 @@ import os
 import sys
 from pathlib import Path
 
-from shapely.geometry import shape, box
-from shapely.ops import unary_union
-
 from common import RAW, ROOT, get, load_json, save_json
+from shapely.geometry import box, shape
 
 NE_URL = "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_10m_admin_0_countries_twn.geojson"
 BBOX = (118.0, 21.7, 122.3, 26.5)  # 經度、緯度範圍（含金門、馬祖）

@@ -9,9 +9,9 @@ Sea.boot(function (data) {
   // 線索由模糊到明確：住哪裡、吃什麼、哪一類、三條特徵、最後看照片（資料沒寫的跳過）
   function clues(a) {
     return [
-      a.habInfo && { label: "我住在哪裡", text: "我住在" + a.habInfo.emoji + a.habInfo.name + "。" },
+      a.habInfo && { label: "我住在哪裡", text: "我住在" + a.habInfo.name + "。" },
       a.dietInfo && { label: "我吃什麼", text: "我" + a.dietInfo.name + "。" },
-      { label: "我是哪一類", text: "我是" + a.groupInfo.emoji + a.groupInfo.name + "。" },
+      { label: "我是哪一類", text: "我是" + a.groupInfo.name + "。" },
       { label: "我的特徵", text: mask(a, a.c[0]) },
       { label: "我的特徵", text: mask(a, a.c[1]) },
       { label: "我的特徵", text: mask(a, a.c[2]) },
@@ -39,7 +39,7 @@ Sea.boot(function (data) {
   function menu() {
     if (Sea.level() === "k") {
       root.replaceChildren(el('<div class="panel"><p class="lead" style="margin-top:0">聽聽看是哪一種海洋生物，再從照片裡找出牠！</p>' +
-        '<p><button class="btn primary big" id="kid">開始（8 題）🔈</button></p></div>'));
+        '<p><button class="btn primary big" id="kid">開始（8 題） ' + Sea.glyph("speaker") + '</button></p></div>'));
       root.querySelector("#kid").onclick = kidPlay;
       return;
     }
@@ -82,8 +82,8 @@ Sea.boot(function (data) {
       const options = shuffle([a].concat(distract));
       root.replaceChildren(el(
         '<div class="stage"><div class="bar"><i style="width:' + (idx / picked.length) * 100 + '%"></i></div>' +
-        "<p>第 " + (idx + 1) + " / " + picked.length + " 題　⭐ " + score + " 分</p>" +
-        (combo >= 2 ? '<p class="combo">🔥 連續答對 ' + combo + " 題！</p>" : "") + '<div id="clues"></div>' +
+        "<p>第 " + (idx + 1) + " / " + picked.length + " 題　" + score + " 分</p>" +
+        (combo >= 2 ? '<p class="combo">' + Sea.glyph("flame") + ' 連續答對 ' + combo + " 題！</p>" : "") + '<div id="clues"></div>' +
         '<div class="opts" id="opts"></div><p><button class="btn" id="more">再給我一個線索（-1 分）</button></p>' +
         '<div class="feedback" id="fb" role="status" aria-live="polite"></div><div id="nx"></div></div>'
       ));
@@ -103,8 +103,8 @@ Sea.boot(function (data) {
         shown = cs.length; draw(); more.remove();
         opts.querySelectorAll(".opt").forEach((b) => { b.disabled = true; if (b.dataset.id === a.id) b.classList.add("right"); });
         fb.className = "feedback " + (ok ? "ok" : "no");
-        fb.innerHTML = (ok ? "答對了！🎉 +" + pts + " 分。" : "答案是 <b>" + esc(a.name) + "</b>。") + ' <a href="/animals#' + encodeURIComponent(a.id) + '" target="_blank" rel="noopener">看牠的介紹</a>';
-        const b = el('<button class="btn primary big">' + (idx === picked.length - 1 ? "看成績 🏆" : "下一題 ➜") + "</button>");
+        fb.innerHTML = (ok ? "答對了！+" + pts + " 分。" : "答案是 <b>" + esc(a.name) + "</b>。") + ' <a href="/animals#' + encodeURIComponent(a.id) + '" target="_blank" rel="noopener">看牠的介紹</a>';
+        const b = el('<button class="btn primary big">' + (idx === picked.length - 1 ? "看成績" : "下一題 →") + "</button>");
         b.onclick = () => { idx++; next(); };
         root.querySelector("#nx").appendChild(b); b.focus();
       };
@@ -134,9 +134,9 @@ Sea.boot(function (data) {
       }
       if (stars === 3) Fx.confetti();
       const box = el(
-        '<div class="stage"><h2>猜謎完成！</h2><div class="stars" aria-label="' + stars + ' 顆星">' + "⭐".repeat(stars) + "☆".repeat(3 - stars) + "</div>" +
+        '<div class="stage"><h2>猜謎完成！</h2><div class="stars">' + Sea.stars(stars) + "</div>" +
         '<div class="score">' + score + " / " + total + "</div>" +
-        "<p>" + (stars === 3 ? "你是觀察小偵探！🕵️" : "多看幾次線索，下次一定更厲害！") + "</p>" +
+        "<p>" + (stars === 3 ? "你是觀察小偵探！" : "多看幾次線索，下次一定更厲害！") + "</p>" +
         (best ? "<p>最佳紀錄：" + Math.max(best, score) + " 分</p>" : "") +
         '<div id="rv"></div><p><button class="btn primary big" id="again">再玩一次</button> ' +
         (wrongs.length ? '<button class="btn big" id="redo">只練錯的（' + wrongs.length + " 題）</button> " : "") +
@@ -159,7 +159,7 @@ Sea.boot(function (data) {
       '<div class="stage"><p id="info" class="lead" style="margin-top:0"></p><div id="clues"></div>' +
       '<div id="ans" style="font-size:2.4rem;font-weight:800;color:var(--green-d)"></div>' +
       '<p style="margin-top:16px"><button class="btn primary big" id="more">下一個線索（空白鍵）</button> ' +
-      '<button class="btn big" id="rev">揭曉答案</button> <button class="btn big" id="nxt">換下一種 ➜</button></p>' +
+      '<button class="btn big" id="rev">揭曉答案</button> <button class="btn big" id="nxt">換下一種 →</button></p>' +
       '<p style="font-size:.85rem;color:var(--ink2)">提醒：老師用「老師專區」的搶答計分板記分。</p></div>'
     ));
     const clueEl = root.querySelector("#clues"), ans = root.querySelector("#ans");

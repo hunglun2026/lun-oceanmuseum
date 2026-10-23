@@ -11,9 +11,9 @@ Sea.boot(function (data) {
       '<div class="panel"><p class="lead" style="margin-top:0">每一題會出現一種海洋生物，請選出牠住在哪裡。一共 10 題。</p>' +
       '<p><button class="btn primary big" id="go">住在哪片海（10 題）</button></p>' +
       '<p class="nokid"><button class="btn big" id="hall">在海生館哪一館？（10 題）</button></p>' +
-      '<p class="nokid"><button class="btn big" id="go60">⏱️ 60 秒挑戰（答越多越好）</button></p>' +
+      '<p class="nokid"><button class="btn big" id="go60">' + Sea.glyph("clock") + ' 60 秒挑戰（答越多越好）</button></p>' +
       "<details><summary>有哪些地方？</summary><ul>" +
-      Sea.HABS.map((h) => "<li>" + h.emoji + " <b>" + esc(h.name) + "</b>：" + esc(h.hint) + "，在海生館的「" + esc(hallName[h.hall]) + "」</li>").join("") +
+      Sea.HABS.map((h) => "<li>" + Sea.ico(h.ico, 28) + " <b>" + esc(h.name) + "</b>：" + esc(h.hint) + "，在海生館的「" + esc(hallName[h.hall]) + "」</li>").join("") +
       "</ul></details></div>"
     ));
     root.querySelector("#go").onclick = () => play(false);
@@ -40,7 +40,7 @@ Sea.boot(function (data) {
         animal: a,
         prompt: "<b>" + esc(a.name) + "</b> 住在哪裡？",
         say: a.name + "住在哪裡？",
-        options: opts.map((h) => ({ id: h.id, label: h.emoji + " " + h.name })),
+        options: opts.map((h) => ({ id: h.id, label: h.name })),
         answer: a.h,
         explain: esc(a.name) + "住在" + esc(a.habInfo.name) + "（" + esc(a.habInfo.hint) + "）。",
       };

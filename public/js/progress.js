@@ -37,17 +37,17 @@ window.Progress = (function () {
     const unitsDone = (units || []).filter((u) => st("unit-" + u.id) >= 1).length;
     const hallOk = ["taiwan", "coral", "world"].every((h) => seenA.filter((a) => a.hall === h).length >= 5);
     const list = [
-      ["👣", "第一步", "在小百科看第 1 種海洋生物", seenA.length >= 1],
-      ["📖", "海洋百科通", "在小百科看過 50 種", seenA.length >= 50],
-      ["🧩", "分類小達人", "鯊魚、魟、鰻、比目魚、鯨豚、海龜等 10 類都至少看過一種", Sea.CLASSIFY_GROUPS.every((g) => seenA.some((a) => a.g === g))],
-      ["🏛️", "海生館導覽員", "三個展館的生物各看過 5 種", hallOk],
-      ["🛡️", "保育小尖兵", "看過 10 種保育類或國際列為易危以上的生物", seenA.filter((a) => a.protInfo || (a.iucnInfo && a.iucnInfo.rank >= 4)).length >= 10],
-      ["📚", "特展讀書人", "完成 4 個特展單元的測驗", unitsDone >= 4],
-      ["🏆", "闖關高手", "分類闖關挑戰拿到三顆星", st("classify-hard") >= 3],
-      ["🗺️", "棲地專家", "誰住哪片海拿到三顆星", st("habitat") >= 3],
-      ["🕵️", "觀察小偵探", "猜猜我是誰（或找找看）拿到三顆星", st("guess") >= 3 || st("guess-kid") >= 3],
-      ["⚡", "閃電快手", "任一個 60 秒挑戰拿到三顆星", ["classify-easy-timed", "classify-hard-timed", "habitat-timed"].some((k) => st(k) >= 3)],
-      ["🃏", "翻牌記憶王", "完成翻牌配對挑戰（8 對）", st("memory-hard") >= 1 || st("memory-hard-kid") >= 1],
+      ["b-first", "第一步", "在小百科看第 1 種海洋生物", seenA.length >= 1],
+      ["t-animals", "海洋百科通", "在小百科看過 50 種", seenA.length >= 50],
+      ["t-classify", "分類小達人", "鯊魚、魟、鰻、比目魚、鯨豚、海龜等 10 類都至少看過一種", Sea.CLASSIFY_GROUPS.every((g) => seenA.some((a) => a.g === g))],
+      ["t-halls", "海生館導覽員", "三個展館的生物各看過 5 種", hallOk],
+      ["t-conserve", "保育小尖兵", "看過 10 種保育類或國際列為易危以上的生物", seenA.filter((a) => a.protInfo || (a.iucnInfo && a.iucnInfo.rank >= 4)).length >= 10],
+      ["t-courses", "特展讀書人", "完成 4 個特展單元的測驗", unitsDone >= 4],
+      ["b-trophy", "闖關高手", "分類闖關挑戰拿到三顆星", st("classify-hard") >= 3],
+      ["t-habitat", "棲地專家", "誰住哪片海拿到三顆星", st("habitat") >= 3],
+      ["b-detective", "觀察小偵探", "猜猜我是誰（或找找看）拿到三顆星", st("guess") >= 3 || st("guess-kid") >= 3],
+      ["b-bolt", "閃電快手", "任一個 60 秒挑戰拿到三顆星", ["classify-easy-timed", "classify-hard-timed", "habitat-timed"].some((k) => st(k) >= 3)],
+      ["t-memory", "翻牌記憶王", "完成翻牌配對挑戰（8 對）", st("memory-hard") >= 1 || st("memory-hard-kid") >= 1],
     ];
     return list.map(([icon, name, how, got]) => ({ icon, name, how, got }));
   }

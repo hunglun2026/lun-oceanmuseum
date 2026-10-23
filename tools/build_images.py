@@ -4,9 +4,8 @@ AI 插圖放 CACHE/photos/ai/<id>.png（去浮水印後），一樣轉。
 """
 import sys
 
-from PIL import Image
-
 from common import CACHE, ROOT, load_json
+from PIL import Image
 
 OUT = ROOT / "public" / "img" / "sp"
 

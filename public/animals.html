@@ -2,15 +2,28 @@
 <html lang="zh-Hant">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>海洋小百科｜海洋探險家</title>
 <meta name="description" content="搜尋與篩選臺灣海域的海洋生物：鯊魚、魟、珊瑚礁魚、鯨豚、海龜，依程度看白話介紹或原文。">
+<!-- SEO:BEGIN -->
+<!-- nosemgrep: html.security.audit.missing-integrity.missing-integrity -- canonical 不是要載入的資源，不需要 integrity -->
+<link rel="canonical" href="https://ocean.hunglun.com/animals">
+<meta name="theme-color" content="#1f7a9e">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="海洋探險家">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:title" content="海洋小百科｜海洋探險家">
+<meta property="og:description" content="搜尋與篩選臺灣海域的海洋生物：鯊魚、魟、珊瑚礁魚、鯨豚、海龜，依程度看白話介紹或原文。">
+<meta property="og:url" content="https://ocean.hunglun.com/animals">
+<meta property="og:image" content="https://ocean.hunglun.com/img/welcome/whaleshark.webp">
+<meta name="twitter:card" content="summary_large_image">
+<!-- SEO:END -->
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="/css/style.css?v=3">
+<link rel="stylesheet" href="/css/style.css?v=0.3.0">
 </head>
 <body data-page="animals">
 <main>
-  <h1>📖 海洋小百科</h1>
+  <h1><img class="icn icn-h" src="/img/ico/t-animals.webp?v=0.3.0" alt="" width="48" height="48">海洋小百科</h1>
   <p class="lead">輸入名字找海洋生物，或用下面的按鈕篩選。點一下看詳細介紹，還可以挑兩種「比一比」。介紹的深淺跟著頁首的「程度」變。</p>
   <section id="cmp" hidden></section>
   <input type="search" id="q" placeholder="輸入名字，例如：鯨鯊、海龜" aria-label="搜尋海洋生物">
@@ -20,10 +33,11 @@
   <div id="cmpbar" class="cmpbar noprint" hidden></div>
   <dialog id="dlg"><div class="dlg-in" id="dlg-body"></div></dialog>
 </main>
-<script src="/js/data.js?v=4"></script>
-<script src="/js/layout.js?v=3"></script>
-<script src="/js/fx.js?v=3"></script>
-<script src="/js/progress.js?v=3"></script>
-<script src="/js/p-animals.js?v=3"></script>
+<script src="/js/data.js?v=0.3.0"></script>
+<script src="/js/icons.js?v=0.3.0"></script>
+<script src="/js/layout.js?v=0.3.0"></script>
+<script src="/js/fx.js?v=0.3.0"></script>
+<script src="/js/progress.js?v=0.3.0"></script>
+<script src="/js/p-animals.js?v=0.3.0"></script>
 </body>
 </html>

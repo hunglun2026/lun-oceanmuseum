@@ -9,8 +9,8 @@ Sea.boot(function (data) {
     const s = Progress.get();
     root.replaceChildren(el('<div class="units">' + data.units.map((u) => {
       const n = s.stars["unit-" + u.id] || 0;
-      return '<button class="unit" data-u="' + u.id + '"><span class="uico" aria-hidden="true">' + u.emoji + "</span><b>" + esc(u.title) + "</b>" +
-        "<small>海生館" + esc(u.hall) + '</small><span class="ust">' + (n ? "⭐".repeat(n) : "還沒讀") + "</span></button>";
+      return '<button class="unit" data-u="' + u.id + '"><span class="uico" aria-hidden="true">' + Sea.unitIco(u.id, 64) + "</span><b>" + esc(u.title) + "</b>" +
+        "<small>海生館" + esc(u.hall) + '</small><span class="ust">' + (n ? Sea.stars(n) : "還沒讀") + "</span></button>";
     }).join("") + "</div>"));
     root.querySelectorAll("[data-u]").forEach((b) => (b.onclick = () => open(b.dataset.u)));
   }
@@ -28,8 +28,8 @@ Sea.boot(function (data) {
     const lv = Sea.level();
     const text = lv === "k" ? u.k : lv === "s" ? u.orig : u.e;
     const how = lv === "s" ? "內容為原文" : "本站依原文改寫（AI 改寫，事實都來自原文）";
-    const box = el('<div><p><button class="btn" id="back">◀ 全部特展</button></p>' +
-      '<article class="panel reading"><p class="uhall">' + u.emoji + " 海生館" + esc(u.hall) + "・原特展：" + esc(u.origTitle) + "</p>" +
+    const box = el('<div><p><button class="btn" id="back">← 全部特展</button></p>' +
+      '<article class="panel reading"><p class="uhall">' + Sea.unitIco(u.id, 28) + " 海生館" + esc(u.hall) + "・原特展：" + esc(u.origTitle) + "</p>" +
       "<h2>" + esc(u.title) + ' <span id="sayu"></span></h2><p class="utext"></p>' +
       (lv === "j" ? '<details class="orig"><summary>讀特展原文</summary><p>' + esc(u.orig) + "</p></details>" : "") +
       '<p class="credit">來源：<a href="' + esc(u.url) + '" target="_blank" rel="noopener">國立海洋生物博物館特展介紹</a>（政府資料開放授權），' + how + "。</p></article>" +

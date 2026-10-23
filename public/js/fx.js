@@ -54,7 +54,7 @@ window.Fx = (function () {
     const b = document.createElement("button");
     b.className = "sound";
     const draw = () => {
-      b.textContent = on ? "🔊" : "🔇";
+      b.innerHTML = Sea.glyph(on ? "speaker" : "mute");
       b.setAttribute("aria-label", on ? "音效開啟中，按一下關閉" : "音效已關閉，按一下開啟");
       b.setAttribute("aria-pressed", String(on));
     };

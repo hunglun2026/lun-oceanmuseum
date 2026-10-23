@@ -8,7 +8,6 @@
 import csv
 import io
 import json
-import re
 import sys
 import time
 import urllib.parse
