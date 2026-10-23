@@ -114,7 +114,7 @@
     img.className = "photo " + (cls || "");
     img.loading = big ? "eager" : "lazy"; // 詳情對話框裡的大圖懶載入會一直不載
     img.decoding = "async";
-    img.alt = a.name + (a.photo.ai ? "（AI 生成示意照片）" : "");
+    img.alt = a.name + (a.photo.ai ? "（示意圖）" : "");
     img.src = "/img/sp/" + a.id + "-" + (big ? 800 : 480) + ".webp?v=" + DATA_V;
     img.onerror = () => img.replaceWith(placeholder(a, cls));
     return img;
@@ -122,7 +122,7 @@
   // 詳情頁的照片出處（自由授權要標作者與授權）
   function creditLine(a) {
     if (!a.photo) return "這種生物目前沒有找到可以自由使用的照片。";
-    if (a.photo.ai) return "這張是 AI 生成的示意照片（依文字資料的外形描述生成，不是實際拍攝），細節可能和真實生物不同。";
+    if (a.photo.ai) return "這張是示意圖（依文字資料的外形描述生成，不是實際拍攝），細節可能和真實生物不同。";
     return '照片：<a href="' + esc(a.photo.page) + '" target="_blank" rel="noopener">' + esc(a.photo.by || "維基共享資源") +
       "</a>，" + esc(a.photo.lic) + "，經維基共享資源取得。";
   }
