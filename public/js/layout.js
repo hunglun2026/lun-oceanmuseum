@@ -106,16 +106,8 @@
   const foot = document.createElement("footer");
   foot.className = "foot";
   foot.innerHTML =
-    "<p>本站以國立海洋生物博物館的展館與特展為主題，資料全部來自" +
-    '<a href="https://data.gov.tw/" target="_blank" rel="noopener">政府資料開放平臺</a>（政府資料開放授權條款第1版）：' +
-    '魚類介紹來自文化部典藏目錄（<a href="https://data.gov.tw/dataset/8716" target="_blank" rel="noopener">國立臺灣博物館魚類典藏</a>）、' +
-    '保育類名錄與調查資料來自<a href="https://data.gov.tw/dataset/161739" target="_blank" rel="noopener">海洋委員會海洋保育署</a>、' +
-    '展館與特展來自<a href="https://data.gov.tw/dataset/90320" target="_blank" rel="noopener">國立海洋生物博物館</a>。' +
-    '學名對照：<a href="https://taicol.tw/" target="_blank" rel="noopener">臺灣物種名錄 TaiCOL</a>。' +
-    "鯨豚與海龜介紹改寫自中文維基百科（CC BY-SA 4.0）。照片為維基共享資源的自由授權照片，作者與授權標在每種生物的介紹頁。</p>" +
-    '<p id="data-stamp">資料載入中…</p>' +
-    "<p>本站非國立海洋生物博物館製作。鴻綸科技 製作；本站不蒐集任何個人資料，學習進度只存在這台裝置的瀏覽器裡。</p>" +
-    '<p class="ver">版本 v' + APP_VERSION + "</p>";
+    "<p>由政府資料獲取</p>" +
+    '<p id="data-stamp" hidden></p>';
   wrap.appendChild(foot);
 
   // Sea.boot(fn)：載入資料後呼叫 fn(data)，處理載入中與失敗畫面
