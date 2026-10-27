@@ -10,11 +10,10 @@
     ["classify", "分類闖關", "/classify", false],
     ["habitat", "誰住哪片海", "/habitat", true],
     ["guess", "猜猜我是誰", "/guess", true],
-    ["memory", "翻牌配對", "/memory", true],
     ["conserve", "保育小尖兵", "/conserve", false],
     ["explore", "海洋探究", "/explore", false],
     ["passport", "探險護照", "/passport", true],
-    ["teacher", "老師專區", "/teacher", false],
+    ["teacher", "教師專區", "/teacher", false],
     ["help", "使用說明", "/help", true],
   ];
   const page = document.body.dataset.page || "";
@@ -31,7 +30,7 @@
   const lv = Sea.level();
   wrap.innerHTML =
     '<header class="top"><a class="logo" href="/"><img class="logo-mark" src="/favicon.svg" alt="" width="32" height="32">海洋探險家</a>' +
-    '<a class="m-only m-teacher" href="/teacher" data-nokid>老師專區</a><button class="m-only m-more" type="button" data-sheet="menu" aria-haspopup="dialog">' + Sea.glyph("menu") + ' 選單</button>' +
+    '<a class="m-only m-teacher" href="/teacher" data-nokid>教師專區</a><button class="m-only m-more" type="button" data-sheet="menu" aria-haspopup="dialog">' + Sea.glyph("menu") + ' 選單</button>' +
     '<nav aria-label="主選單">' +
     NAV.map((n) => '<a href="' + n[2] + '"' + (n[0] === page ? ' aria-current="page"' : "") + (n[3] ? "" : ' data-nokid') + ">" + n[1] + "</a>").join("") +
     '</nav><label class="lvl">程度<select id="lvl" aria-label="學習程度">' +
@@ -48,7 +47,7 @@
 
   // ---- 手機：底部固定 4 格＋點開的面板（桌機用上面的導覽列，這組用 CSS 藏起來）----
   // 頂部 12 項在手機上會排成 4 排，把內容推出第一屏；改成底部單手按得到的 4 格，其餘收進「選單」
-  const GAMES = ["classify", "habitat", "guess", "memory", "conserve"];
+  const GAMES = ["classify", "habitat", "guess", "conserve"];
   const navLinks = (ids) => NAV.filter((n) => !ids || ids.includes(n[0])).map((n) =>
     '<a href="' + n[2] + '"' + (n[0] === page ? ' aria-current="page"' : "") + (n[3] ? "" : " data-nokid") + ">" + n[1] + "</a>").join("");
   const SHEETS = {
@@ -64,7 +63,6 @@
     tabs.innerHTML = Sea.level() === "k"
       ? '<a href="/animals"' + cur(page === "animals", "page") + '><span aria-hidden="true">' + Sea.ico("t-animals", 30) + '</span>百科</a>' +
         '<a href="/guess"' + cur(page === "guess", "page") + '><span aria-hidden="true">' + Sea.ico("t-guess", 30) + '</span>找找看</a>' +
-        '<a href="/memory"' + cur(page === "memory", "page") + '><span aria-hidden="true">' + Sea.ico("t-memory", 30) + '</span>翻牌</a>' +
         '<a href="/passport"' + cur(page === "passport", "page") + '><span aria-hidden="true">' + Sea.ico("t-passport", 30) + '</span>護照</a>'
       : '<a href="/animals"' + cur(page === "animals", "page") + '><span aria-hidden="true">' + Sea.ico("t-animals", 30) + '</span>百科</a>' +
         '<button type="button" data-sheet="games"' + cur(GAMES.includes(page), "true") + '><span aria-hidden="true">' + Sea.ico("t-games", 30) + '</span>遊戲</button>' +

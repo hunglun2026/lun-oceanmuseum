@@ -10,19 +10,19 @@
   const R = (href, ico, name, why) => ({ href, ico, name, why });
   const RECS = {
     student: {
-      k: [R("/memory", "t-memory", "翻牌配對", "兩張一樣的照片配一對，翻開會唸名字"), R("/guess", "t-guess", "找找看", "聽名字，從照片裡找出牠"), R("/halls", "t-halls", "逛海生館", "看看三個展館住著誰")],
+      k: [R("/guess", "t-guess", "找找看", "聽名字，從照片裡找出牠"), R("/halls", "t-halls", "逛海生館", "看看三個展館住著誰")],
       e: [R("/animals", "t-animals", "海洋小百科", "有白話介紹，先挑一種最喜歡的"), R("/units#shark", "g-shark", "特展教室：鯊魚", "鯊魚真的會吃人嗎？讀完答五題"), R("/habitat", "t-habitat", "誰住哪片海", "幫海洋生物找到牠的家")],
       j: [R("/classify", "t-classify", "分類闖關", "十類海洋生物，四選一還有 60 秒挑戰"), R("/units", "t-units", "特展教室", "八個特展，可以展開讀原文"), R("/conserve", "t-conserve", "保育小尖兵", "臺灣保育類和國際紅色名錄")],
       s: [R("/explore", "t-explore", "海洋探究", "環境 DNA 測站地圖和擱淺紀錄"), R("/animals", "t-animals", "海洋小百科", "讀臺博館和維基原文，看學名科名"), R("/units", "t-units", "特展教室", "直接讀海生館的特展原文")],
     },
     parent: {
-      k: [R("/memory", "t-memory", "翻牌配對", "兩人輪流翻，10 分鐘玩完一輪"), R("/guess", "t-guess", "找找看", "你唸名字，孩子從照片裡指出來"), R("/halls", "t-halls", "逛海生館", "去海生館以前，先看看會遇到誰")],
+      k: [R("/guess", "t-guess", "找找看", "你唸名字，孩子從照片裡指出來"), R("/halls", "t-halls", "逛海生館", "去海生館以前，先看看會遇到誰")],
       e: [R("/animals", "t-animals", "海洋小百科", "一起挑一種孩子最喜歡的，讀白話介紹"), R("/habitat", "t-habitat", "誰住哪片海", "幫海洋生物找家，邊玩邊聊"), R("/halls", "t-halls", "逛海生館", "三個展館住著誰，出發前先認識")],
       j: [R("/classify", "t-classify", "分類闖關", "看照片分一分，還有 60 秒挑戰"), R("/units", "t-units", "特展教室", "一起讀一篇，答五題比比看"), R("/conserve", "t-conserve", "保育小尖兵", "聊聊海龜和鯨豚為什麼越來越少")],
       s: [R("/explore", "t-explore", "海洋探究", "用真實的調查資料一起找答案"), R("/units", "t-units", "特展教室", "讀海生館特展原文，答閱讀測驗"), R("/animals", "t-animals", "海洋小百科", "查學名和科名，一起讀原文")],
     },
     teacher: {
-      k: [R("/memory", "t-memory", "翻牌配對", "照片配照片，小朋友兩人一組玩"), R("/guess", "t-guess", "找找看", "投影出來，全班一起指出照片"), R("/help", "t-help", "使用說明", "幼兒園模式怎麼用、語音怎麼開")],
+      k: [R("/guess", "t-guess", "找找看", "投影出來，全班一起指出照片"), R("/help", "t-help", "使用說明", "幼兒園模式怎麼用、語音怎麼開")],
       e: [R("/teacher#guide", "t-courses", "課程包「海洋生物分類」", "40 分鐘流程，一鍵帶入學習單"), R("/guess", "t-guess", "猜猜我是誰", "投影全班搶答，不用每人一台"), R("/help", "t-help", "使用說明", "三分鐘看懂每個工具怎麼用")],
       j: [R("/teacher#guide", "t-courses", "課程包「棲地與海生館」", "40 分鐘流程，一鍵帶入學習單"), R("/units", "t-units", "特展教室", "閱讀理解課，讀完答五題"), R("/conserve", "t-conserve", "保育小尖兵", "海洋保育的討論素材")],
       s: [R("/explore", "t-explore", "海洋探究", "用政府開放資料帶探究問題"), R("/teacher#guide", "t-courses", "課程包「海洋保育」", "40 分鐘流程，一鍵帶入學習單"), R("/units", "t-units", "特展教室", "讀原文、做閱讀測驗")],

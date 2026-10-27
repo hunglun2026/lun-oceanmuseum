@@ -12,8 +12,8 @@ Sea.boot(function (data) {
   function menu() {
     const lv = Sea.level();
     if (lv === "k") {
-      root.replaceChildren(el('<div class="panel"><p class="lead" style="margin-top:0">分類闖關要讀字，比較適合國小以上。幼兒園可以玩「翻牌配對」或「猜猜我是誰」喔！</p>' +
-        '<p><a class="btn primary big" href="/memory">翻牌配對</a> <a class="btn big" href="/guess">猜猜我是誰</a></p></div>'));
+      root.replaceChildren(el('<div class="panel"><p class="lead" style="margin-top:0">分類闖關要讀字，比較適合國小以上。幼兒園可以玩「猜猜我是誰」喔！</p>' +
+        '<p><a class="btn primary big" href="/guess">猜猜我是誰</a></p></div>'));
       return;
     }
     const hardFirst = lv !== "e";

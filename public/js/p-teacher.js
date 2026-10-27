@@ -1,4 +1,4 @@
-/* 老師專區：分頁切換、學習單產生與列印、出題投影（含 10 秒倒數）、課程包一鍵帶入設定。計分板在 p-board.js。 */
+/* 教師專區：分頁切換、學習單產生與列印、出題投影（含 10 秒倒數）、課程包一鍵帶入設定。計分板在 p-board.js。 */
 Sea.boot(function (data) {
   const { esc, el } = Sea;
   const animals = data.species;

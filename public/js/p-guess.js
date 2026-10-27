@@ -160,7 +160,7 @@ Sea.boot(function (data) {
       '<div id="ans" style="font-size:2.4rem;font-weight:800;color:var(--green-d)"></div>' +
       '<p style="margin-top:16px"><button class="btn primary big" id="more">下一個線索（空白鍵）</button> ' +
       '<button class="btn big" id="rev">揭曉答案</button> <button class="btn big" id="nxt">換下一種 →</button></p>' +
-      '<p style="font-size:.85rem;color:var(--ink2)">提醒：老師用「老師專區」的搶答計分板記分。</p></div>'
+      '<p style="font-size:.85rem;color:var(--ink2)">提醒：老師用「教師專區」的搶答計分板記分。</p></div>'
     ));
     const clueEl = root.querySelector("#clues"), ans = root.querySelector("#ans");
     const draw = () => {

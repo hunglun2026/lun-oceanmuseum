@@ -25,8 +25,6 @@ window.Progress = (function () {
     ["classify-easy-timed", "分類闖關・60 秒（入門）"], ["classify-hard-timed", "分類闖關・60 秒（挑戰）"],
     ["habitat", "誰住哪片海"], ["habitat-timed", "誰住哪片海・60 秒"], ["hall", "在海生館哪一館"],
     ["guess", "猜猜我是誰"], ["guess-kid", "找找看（幼兒園）"], ["conserve", "誰比較危險"],
-    ["memory-easy", "翻牌配對・入門"], ["memory-hard", "翻牌配對・挑戰"],
-    ["memory-easy-kid", "翻牌配對・入門（幼兒園）"], ["memory-hard-kid", "翻牌配對・挑戰（幼兒園）"],
   ];
 
   // 徽章：有沒有拿到全部從紀錄算出來，不另外存，規則改了舊紀錄也會跟著對
@@ -47,7 +45,6 @@ window.Progress = (function () {
       ["t-habitat", "棲地專家", "誰住哪片海拿到三顆星", st("habitat") >= 3],
       ["b-detective", "觀察小偵探", "猜猜我是誰（或找找看）拿到三顆星", st("guess") >= 3 || st("guess-kid") >= 3],
       ["b-bolt", "閃電快手", "任一個 60 秒挑戰拿到三顆星", ["classify-easy-timed", "classify-hard-timed", "habitat-timed"].some((k) => st(k) >= 3)],
-      ["t-memory", "翻牌記憶王", "完成翻牌配對挑戰（8 對）", st("memory-hard") >= 1 || st("memory-hard-kid") >= 1],
     ];
     return list.map(([icon, name, how, got]) => ({ icon, name, how, got }));
   }
