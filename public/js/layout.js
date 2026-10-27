@@ -5,16 +5,11 @@
   // [頁面代號, 名稱, 網址, 幼兒園也顯示嗎]
   const NAV = [
     ["animals", "海洋小百科", "/animals", true],
-    ["halls", "逛海生館", "/halls", true],
-    ["units", "特展教室", "/units", false],
     ["classify", "分類闖關", "/classify", false],
     ["habitat", "誰住哪片海", "/habitat", true],
     ["guess", "猜猜我是誰", "/guess", true],
-    ["conserve", "保育小尖兵", "/conserve", false],
-    ["explore", "海洋探究", "/explore", false],
     ["passport", "探險護照", "/passport", true],
     ["teacher", "教師專區", "/teacher", false],
-    ["help", "使用說明", "/help", true],
   ];
   const page = document.body.dataset.page || "";
   const wrap = document.createElement("div");
@@ -47,7 +42,7 @@
 
   // ---- 手機：底部固定 4 格＋點開的面板（桌機用上面的導覽列，這組用 CSS 藏起來）----
   // 頂部 12 項在手機上會排成 4 排，把內容推出第一屏；改成底部單手按得到的 4 格，其餘收進「選單」
-  const GAMES = ["classify", "habitat", "guess", "conserve"];
+  const GAMES = ["classify", "habitat", "guess"];
   const navLinks = (ids) => NAV.filter((n) => !ids || ids.includes(n[0])).map((n) =>
     '<a href="' + n[2] + '"' + (n[0] === page ? ' aria-current="page"' : "") + (n[3] ? "" : " data-nokid") + ">" + n[1] + "</a>").join("");
   const SHEETS = {
@@ -66,7 +61,6 @@
         '<a href="/passport"' + cur(page === "passport", "page") + '><span aria-hidden="true">' + Sea.ico("t-passport", 30) + '</span>護照</a>'
       : '<a href="/animals"' + cur(page === "animals", "page") + '><span aria-hidden="true">' + Sea.ico("t-animals", 30) + '</span>百科</a>' +
         '<button type="button" data-sheet="games"' + cur(GAMES.includes(page), "true") + '><span aria-hidden="true">' + Sea.ico("t-games", 30) + '</span>遊戲</button>' +
-        '<a href="/halls"' + cur(page === "halls", "page") + '><span aria-hidden="true">' + Sea.ico("t-halls", 30) + '</span>展館</a>' +
         '<a href="/passport"' + cur(page === "passport", "page") + '><span aria-hidden="true">' + Sea.ico("t-passport", 30) + '</span>護照</a>';
   }
   renderTabs();

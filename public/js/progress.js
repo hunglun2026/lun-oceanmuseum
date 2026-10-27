@@ -23,8 +23,8 @@ window.Progress = (function () {
   const GAMES = [
     ["classify-easy", "分類闖關・入門"], ["classify-hard", "分類闖關・挑戰"],
     ["classify-easy-timed", "分類闖關・60 秒（入門）"], ["classify-hard-timed", "分類闖關・60 秒（挑戰）"],
-    ["habitat", "誰住哪片海"], ["habitat-timed", "誰住哪片海・60 秒"], ["hall", "在海生館哪一館"],
-    ["guess", "猜猜我是誰"], ["guess-kid", "找找看（幼兒園）"], ["conserve", "誰比較危險"],
+    ["habitat", "誰住哪片海"], ["habitat-timed", "誰住哪片海・60 秒"],
+    ["guess", "猜猜我是誰"], ["guess-kid", "找找看（幼兒園）"],
   ];
 
   // 徽章：有沒有拿到全部從紀錄算出來，不另外存，規則改了舊紀錄也會跟著對
@@ -38,9 +38,7 @@ window.Progress = (function () {
       ["b-first", "第一步", "在小百科看第 1 種海洋生物", seenA.length >= 1],
       ["t-animals", "海洋百科通", "在小百科看過 50 種", seenA.length >= 50],
       ["t-classify", "分類小達人", "鯊魚、魟、鰻、比目魚、鯨豚、海龜等 10 類都至少看過一種", Sea.CLASSIFY_GROUPS.every((g) => seenA.some((a) => a.g === g))],
-      ["t-halls", "海生館導覽員", "三個展館的生物各看過 5 種", hallOk],
       ["t-conserve", "保育小尖兵", "看過 10 種保育類或國際列為易危以上的生物", seenA.filter((a) => a.protInfo || (a.iucnInfo && a.iucnInfo.rank >= 4)).length >= 10],
-      ["t-courses", "特展讀書人", "完成 4 個特展單元的測驗", unitsDone >= 4],
       ["b-trophy", "闖關高手", "分類闖關挑戰拿到三顆星", st("classify-hard") >= 3],
       ["t-habitat", "棲地專家", "誰住哪片海拿到三顆星", st("habitat") >= 3],
       ["b-detective", "觀察小偵探", "猜猜我是誰（或找找看）拿到三顆星", st("guess") >= 3 || st("guess-kid") >= 3],
