@@ -10,6 +10,6 @@
   "routes": [{ "pattern": "ocean.hunglun.com", "custom_domain": true }, { "pattern": "sea.hunglun.com", "custom_domain": true }],
   // 每月 1 日台灣 03:00（UTC 前一天 19:00）檢查 data.gov.tw 有沒有更新，有就 ntfy 通知（整理資料在本機跑）
   "triggers": { "crons": ["0 19 1 * *"] },
-  "vars": { "APP_VERSION": "0.3.4" }
+  "vars": { "APP_VERSION": "0.3.5" }
   // secrets（wrangler secret put）：NTFY_TOPIC、ADMIN_TOKEN
 }
