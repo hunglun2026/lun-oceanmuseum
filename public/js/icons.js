@@ -6,7 +6,7 @@
    純文字的地方（下拉選單、選項按鈕、列印的學習單）放不了圖，只留文字，不要塞圖示代號進去。 */
 (function () {
   "use strict";
-  const APP_VERSION = "0.3.3"; // 由 scripts/sync-version.py 依 package.json 寫入，不要手改
+  const APP_VERSION = "0.3.4"; // 由 scripts/sync-version.py 依 package.json 寫入，不要手改
   // 圖示檔網址帶版本號：換圖時升版本，使用者才拿得到新圖（靜態頁面的 <img> 也用同一個版本，同一張圖只下載一次）
   const src = (key) => "/img/ico/" + key + ".webp?v=" + APP_VERSION;
 
