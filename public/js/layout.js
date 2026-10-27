@@ -28,7 +28,7 @@
     '<a class="m-only m-teacher" href="/teacher" data-nokid>教師專區</a><button class="m-only m-more" type="button" data-sheet="menu" aria-haspopup="dialog">' + Sea.glyph("menu") + ' 選單</button>' +
     '<nav aria-label="主選單">' +
     NAV.map((n) => '<a href="' + n[2] + '"' + (n[0] === page ? ' aria-current="page"' : "") + (n[3] ? "" : ' data-nokid') + ">" + n[1] + "</a>").join("") +
-    '</nav><label class="lvl">程度<select id="lvl" aria-label="學習程度">' +
+    '</nav><label class="lvl">年級<select id="lvl" aria-label="年級">' +
     Object.entries(Sea.LEVELS).map(([k, v]) => '<option value="' + k + '"' + (k === lv ? " selected" : "") + ">" + v.name + "</option>").join("") +
     "</select></label></header>";
   wrap.appendChild(main);

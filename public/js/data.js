@@ -52,12 +52,11 @@
     LC: { name: "暫無危機", color: "#3f9c5a", rank: 2 }, DD: { name: "資料不足", color: "#8a8f98", rank: 1 },
   };
 
-  // ---- 四級難度（GrillMe 第 2 題）。存在 localStorage，頁首可切換；幼兒園只開看圖的遊戲 ----
+  // ---- 三個年級（跟動物探險家一樣：低、中、高年級；低年級有注音）。存在 localStorage，頁首可切換 ----
   const LEVELS = {
-    k: { name: "幼兒園", choices: 3, kid: true },
-    e: { name: "國小", choices: 3 },
-    j: { name: "國中", choices: 4 },
-    s: { name: "高中", choices: 4 },
+    e: { name: "低年級", choices: 3 },
+    j: { name: "中年級", choices: 3 },
+    s: { name: "高年級", choices: 4 },
   };
   const LKEY = "sea-level";
   function level() {
@@ -81,8 +80,7 @@
   function intro(a, lv) {
     lv = lv || level();
     if (lv === "k") return a.k;
-    if (lv === "e" || lv === "j") return a.e;
-    return a.orig || a.e;
+    return a.e;   // 三個年級都讀本站改寫的白話介紹（不再放原文，太難）
   }
 
   // ---- 載入：sea.json 帶資料版本號，瀏覽器快取一天，換版自動抓新的 ----

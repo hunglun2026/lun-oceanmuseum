@@ -49,7 +49,7 @@
     guide.querySelectorAll("[data-who]").forEach((b) => (b.onclick = () => {
       who = b.dataset.who;
       try { localStorage.setItem(GKEY, JSON.stringify({ who })); } catch (e) { /* 忽略 */ }
-      document.getElementById("g-lvq").textContent = who === "teacher" ? "你教哪個程度？" : who === "parent" ? "孩子幾年級？" : "你幾年級？";
+      document.getElementById("g-lvq").textContent = who === "teacher" ? "你教哪個年級？" : who === "parent" ? "孩子幾年級？" : "你幾年級？";
       // 沒真的選過就不要亮起來，不然共用平板上會以為已經選好了
       guide.querySelectorAll("[data-lv]").forEach((x) => x.setAttribute("aria-pressed", String(Sea.levelChosen() && x.dataset.lv === Sea.level())));
       show("lv");
